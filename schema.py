@@ -1,71 +1,56 @@
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Float, Boolean
-from sqlalchemy.orm import sessionmaker, relationship, declarative_base
+import sqlite3
+import json
 
-# Create an item engine to connect from the bdd
-engine = create_engine('sqlite://Trivial_bdd.db')
+# Load JSON file 
+with open('data.json', 'r') as f:
+    json_data = json.load(f)
 
-# Base class to define the model
-Base = declarative_base()
-
-# Need to create table categories with id and name of categories, a table questions with id, categorie_id and question_text then a table answer with id, question_id, response_text and is_correct (Bool)
-
-# Create class categories
-class Categories(Base):
-    __tablename__ = 'categories'
-
-    id = Column(Integer, primary_key=True)
-    name_categorie = Column(String)
-    questions = relationship("Questions", back_populates="category")
-
-# Create class Questions
-class Questions(Base):
-    __tablename__ = 'questions'
+# Connect the BDD
+with sqlite3.connect('Trivial_bdd.db') as connection:
+    cursor = connection.cursor()
     
-    id = Column(Integer, primary_key=True)
-    categorie_id = Column(Integer, ForeignKey('categories.id'))
-    question_text = Column(String)
-    category = relationship("Categories", back_populates="questions")
-    answer = relationship("answer", back_populates="question")
+    cursor.executescript('''
+        CREATE TABLE IF NOT EXISTS categories (
+            categorie_id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            SQL TEXT, 
+            Actualité_IA TEXT, 
+            Python TEXT, 
+            Git_Github TEXT, 
+            Ligne_de_commande_Terminal_Linux TEXT); 
+        
+        CREATE TABLE IF NOT EXISTS questions (
+            question_id INTEGER PRIMARY KEY AUTOINCREMENT, text_question TEXT, 
+            categorie_id INTEGER,
+            FOREIGN KEY(categorie_id) REFERENCES categories(categorie_id)
+        );
+        
+        CREATE TABLE IF NOT EXISTS answers (
+            answer_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            text_answer TEXT,
+            is_correct BOOL,
+            question_id INTEGER,
+            FOREIGN KEY(question_id) REFERENCES questions(question_id)
+        );
+        ''')
 
-# Create class answer
-class Answer(Base):
-    __tablename__ = 'answer'
-    
-    id = Column(Integer, primary_key=True)
-    question_id = Column(Integer, ForeignKey('questions.id'))
-    answer_text = Column(String)
-    question = relationship("Questions", back_populates="answer")
+    for category, questions in json_data.items():
+        # Insert category in categories TABLE
+        cursor.execute('INSERT INTO categories (SQL, Actualité_IA, Python, Git_Github, Ligne_de_commande_Terminal_Linux) VALUES (?,?,?,?,?)',
+                       (category, None, None, None, None))
+        categorie_id = cursor.lastrowid # Recover ID of the question Inserted
+        
+        # Insert each question and this answer in the table
+        for question_data in questions:
+            # Insert the question in the question table
+            cursor.execute('INSERT INTO questions (text_question, categorie_id) VALUES (?, ?)',
+                           (question_data['question'], categorie_id))
+            question_id = cursor.lastrowid 
+            
+            # Insert answer in the answer table
+            for choice, choice_data in question_data['choices'].items():
+                cursor.execute('INSERT INTO answers (text_answer, is_correct, question_id) VALUES (?, ?, ?)',
+                               (choice_data['text'], choice_data['is_correct'], question_id))
+
+connection.commit()
 
 
-# Create table on the dbb
-Base.metadata.create_all(engine)
-
-# Create DBB's session
-Session = sessionmaker(bind=engine)
-session = Session()
-
-# Add category in the category table
-sql = Categories(id=1, name_categorie = 'SQL')
-python = Categories(id=2, name_categorie = 'Python')
-lci = Categories(id=3, name_categorie = 'Ligne de commande')
-ia = Categories(id=3, name_categorie = 'Actualités IA')
-git = Categories(id=3, name_categorie = 'Git/Github')
-
-session.add_all([sql, python, lci, ia, git])
-
-
-# Add questions in the Questions table
-
-sql_question_1 = Questions(id=1, categorie_id = 1, question_text = 'Que veut dire SGBDR ? ')
-sql_question_2 = Questions(id=2, categorie_id = 1, question_text = 'Qui est le créateur originel de MySQL ?')
-sql_question_3 = Questions(id=3, categorie_id = 1, question_text = 'Quel est l’ordre des requête SQL ?')
-sql_question_4 = Questions(id=4, categorie_id = 1, question_text = 'Quels sont les systèmes de gestion de base de data relationnelle les plus populaires ?')
-sql_question_5 = Questions(id=4, categorie_id = 1, question_text = 'Quels sont les systèmes de gestion de base de data relationnelle les plus populaires ?')
-
-
-
-# Add answer in the Answer table
-sql_answer_1 = Answer(id=1, question_id = 1, answer_text = {'a' : 'Système de Gestion de Base de Données Réseau', 'b' : 'Sécurité Globale des Bases de Données Relationnelles', 'c' : 'Système de Gestion de Base de Donnée Relationnelle'})
-sql_answer_2 = Answer(id=2, question_id=1, answer_trext = {'a' : 'John McCarthy', 'b' : 'Michael Widenius', 'c' : 'Linus Torvalds'})
-sql_answer_3 = Answer(id=3, question_id=1, answer_trext = {'a' : 'Select, From, Where, Order by, Having', 'b' : 'From, Select, Where, Order by, Having', 'c' : 'Select, Order by, Where, From, Having'})
-sql_answer_4 = Answer(id=4, question_id=1, answer_trext = {'a' : 'Oracle Database, MySQL, Microsoft SQL Server, PostgreSQL, SQLite', 'b' : 'MongoDB, Cassandra, Redis"', 'c' : 'Excel, PowerPoint, Word', 'd' : 'Visual Studio, Eclipse, Ruby'})

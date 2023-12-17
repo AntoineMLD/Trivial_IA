@@ -1,0 +1,147 @@
+{
+    "SQL": [
+      {
+        "question": "Quelle est la fonction SQL utilisée pour renommer une colonne dans une table existante?",
+        "choices": {
+          "A": {"text": "CHANGE COLUMN", "is_correct": false},
+          "B": {"text": "RENAME COLUMN", "is_correct": true},
+          "C": {"text": "MODIFY COLUMN", "is_correct": false},
+          "D": {"text": "ALTER COLUMN", "is_correct": false}
+        }
+      },
+      {
+        "question": "Quelle clause SQL est utilisée pour filtrer les résultats d'une requête?",
+        "choices": {
+          "A": {"text": "GROUP BY", "is_correct": false},
+          "B": {"text": "WHERE", "is_correct": true},
+          "C": {"text": "FROM", "is_correct": false},
+          "D": {"text": "HAVING", "is_correct": false}
+        }
+      },
+      {
+        "question": "Quelle fonction SQL est utilisée pour trouver la valeur maximale dans une colonne?",
+        "choices": {
+          "A": {"text": "MAX()", "is_correct": true},
+          "B": {"text": "TOP()", "is_correct": false},
+          "C": {"text": "SUM()", "is_correct": false},
+          "D": {"text": "LARGEST()", "is_correct": false}
+        }
+      }
+    ],
+    "Actualité IA": [
+      {
+        "question": "Quelle est la principale préoccupation éthique entourant l'intelligence artificielle?",
+        "choices": {
+          "A": {"text": "La réglementation excessive", "is_correct": false},
+          "B": {"text": "Le manque de transparence dans les algorithmes", "is_correct": true},
+          "C": {"text": "L'absence totale de réglementation", "is_correct": false},
+          "D": {"text": "L'utilisation exclusive de l'IA dans les gouvernements", "is_correct": false}
+        }
+      },
+      {
+        "question": "Quel concept d'apprentissage machine vise à permettre aux algorithmes d'apprendre sans être explicitement programmés?",
+        "choices": {
+          "A": {"text": "Machine Teaching", "is_correct": false},
+          "B": {"text": "Apprentissage supervisé", "is_correct": false},
+          "C": {"text": "Apprentissage non supervisé", "is_correct": true},
+          "D": {"text": "Apprentissage par renforcement", "is_correct": false}
+        }
+      },
+      {
+        "question": "Quelle méthode d'apprentissage machine est utilisée pour regrouper des données similaires sans étiquettes prédéfinies?",
+        "choices": {
+          "A": {"text": "Clustering", "is_correct": true},
+          "B": {"text": "Classification", "is_correct": false},
+          "C": {"text": "Régression", "is_correct": false},
+          "D": {"text": "Analyse discriminante", "is_correct": false}
+        }
+      }
+    ],
+    "Python": [
+      {
+        "question": "Comment déclare-t-on une fonction en Python?",
+        "choices": {
+          "A": {"text": "def fonction():", "is_correct": true},
+          "B": {"text": "function():", "is_correct": false},
+          "C": {"text": "declare fonction():", "is_correct": false},
+          "D": {"text": "function = def():", "is_correct": false}
+        }
+      },
+      {
+        "question": "Quelle est la sortie de ce code en Python : print(2 ** 3)?",
+        "choices": {
+          "A": {"text": "6", "is_correct": false},
+          "B": {"text": "8", "is_correct": true},
+          "C": {"text": "16", "is_correct": false},
+          "D": {"text": "5", "is_correct": false}
+        }
+      },
+      {
+        "question": "Quel est le résultat de cette expression Python : 5 != 7 ?",
+        "choices": {
+          "A": {"text": "True", "is_correct": true},
+          "B": {"text": "False", "is_correct": false},
+          "C": {"text": "2", "is_correct": false},
+          "D": {"text": "Error", "is_correct": false}
+        }
+      }
+    ],
+    "Git_Github": [
+      {
+        "question": "Comment crée-t-on une nouvelle branche en utilisant Git?",
+        "choices": {
+          "A": {"text": "git new-branch <nom_de_branche>", "is_correct": false},
+          "B": {"text": "git branch <nom_de_branche>", "is_correct": false},
+          "C": {"text": "git checkout -b <nom_de_branche>", "is_correct": true},
+          "D": {"text": "git branch -create <nom_de_branche>", "is_correct": false}
+        }
+      },
+      {
+        "question": "Quelle commande Git est utilisée pour fusionner une branche dans la branche actuelle?",
+        "choices": {
+          "A": {"text": "git merge <nom_de_branche>", "is_correct": true},
+          "B": {"text": "git branch -merge <nom_de_branche>", "is_correct": false},
+          "C": {"text": "git pull <nom_de_branche>", "is_correct": false},
+          "D": {"text": "git merge branch <nom_de_branche>", "is_correct": false}
+        }
+      },
+      {
+        "question": "Comment ajoute-t-on tous les fichiers modifiés pour être indexés dans Git?",
+        "choices": {
+          "A": {"text": "git add .", "is_correct": true},
+          "B": {"text": "git commit -a", "is_correct": false},
+          "C": {"text": "git stage-all", "is_correct": false},
+          "D": {"text": "git push -all", "is_correct": false}
+        }
+      }
+    ],
+    "Ligne de commande Terminal Linux": [
+      {
+        "question": "Quelle commande est utilisée pour afficher le répertoire de travail actuel dans le terminal?",
+        "choices": {
+          "A": {"text": "ls", "is_correct": false},
+          "B": {"text": "pwd", "is_correct": true},
+          "C": {"text": "cd", "is_correct": false},
+          "D": {"text": "dir", "is_correct": false}
+        }
+      },
+      {
+        "question": "Comment supprime-t-on un fichier dans le terminal Linux?",
+        "choices": {
+          "A": {"text": "delete <nom_fichier>", "is_correct": false},
+          "B": {"text": "rm <nom_fichier>", "is_correct": true},
+          "C": {"text": "erase <nom_fichier>", "is_correct": false},
+          "D": {"text": "del <nom_fichier>", "is_correct": false}
+        }
+      },
+      {
+        "question": "Quelle commande est utilisée pour lister tous les processus en cours d'exécution dans le terminal Linux?",
+        "choices": {
+          "A": {"text": "top", "is_correct": false},
+          "B": {"text": "list", "is_correct": false},
+          "C": {"text": "ps", "is_correct": true},
+          "D": {"text": "show processes", "is_correct": false}
+        }
+      }
+    ]
+  }

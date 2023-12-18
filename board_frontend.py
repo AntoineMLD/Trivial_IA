@@ -6,16 +6,15 @@ from board import CASES
 
 
 # GRAPHICAL EFFECTS
+BACKGROUND = (29, 62, 71)
 WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-BLUE = (33, 156, 144)
-ORANGE = (255, 152, 0)
+BLUE = (68, 202, 219)
+ORANGE = (253, 139, 80)
 GREEN = (101, 183, 65)
-YELLOW = (244, 232, 105)
-PINK = (255, 105, 105)
-BROWN = (167, 49, 33)
-GREY = (218, 212, 181)
+YELLOW = (254, 232, 37)
+PINK = (252, 111, 163)
+BROWN = (190, 124, 67)
+GREY = (236, 225, 205)
 
 COLOR_MAP = {
     "*Spe": BROWN,
@@ -43,10 +42,12 @@ BRIDGES = [
 ]
 
 # DIMENSIONS
+# Board Screen
 WIDTH, HEIGHT = 600, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("TrivIA Pursuit Board")
 
+# Board Circle
 BOARD_RADIUS = 250
 CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2
 
@@ -71,10 +72,10 @@ box_positions = calculate_positions(42)
 # MAIN RUN
 running = True
 while running:
-    screen.fill(BLACK)  # White background
+    screen.fill(BACKGROUND)  # White background
 
     # Draw the contour
-    pygame.draw.circle(screen, WHITE, (CENTER_X, CENTER_Y), BOARD_RADIUS, 2)
+    # pygame.draw.circle(screen, WHITE, (CENTER_X, CENTER_Y), BOARD_RADIUS, 2)
 
     # Draw the circular boxes on the contour
     for color, pos in zip(CONTOUR, box_positions):
@@ -85,7 +86,7 @@ while running:
         # Draw the diameters
         begin_pos = box_positions[n_bridge * 7]
         end_pos = box_positions[n_bridge * 7 + 21]
-        pygame.draw.line(screen, WHITE, begin_pos, end_pos, 2)
+        # pygame.draw.line(screen, WHITE, begin_pos, end_pos, 2)
         # Draw the boxes on the diameters
         for n_box in range(1, 12):
             fraction = n_box / 12

@@ -1,0 +1,943 @@
+{
+    "SQL": [
+      {
+        "question": "Quelle est la fonction SQL utilisée pour renommer une colonne dans une table existante?",
+        "Réponse A": "CHANGE COLUMN",
+        "Réponse B": "RENAME COLUMN",
+        "Réponse C": "MODIFY COLUMN",
+        "Réponse D": "ALTER COLUMN",
+        "Answer": "RENAME COLUMN"
+      },
+      {
+        "question": "Quelle clause SQL est utilisée pour filtrer les résultats d'une requête?",
+        "Réponse A": "GROUP BY",
+        "Réponse B": "WHERE",
+        "Réponse C": "FROM",
+        "Réponse D": "HAVING",
+        "Answer": "WHERE"
+      },
+      {
+        "question": "Quelle fonction SQL est utilisée pour trouver la valeur maximale dans une colonne?",
+        "Réponse A": "MAX()",
+        "Réponse B": "TOP()",
+        "Réponse C": "SUM()",
+        "Réponse D": "LARGEST()",
+        "Answer": "MAX()"
+      },
+      {
+        "question": "Quelle fonction SQL est utilisée pour trouver la valeur minimale dans une colonne?",
+        "Réponse A": "MIN()",
+        "Réponse B": "BOTTOM()",
+        "Réponse C": "SMALLEST()",
+        "Réponse D": "LEAST()",
+        "Answer": "MIN()"
+      },
+      {
+        "question": "Quelle est la différence entre les clauses `WHERE` et `HAVING` ?",
+        "Réponse A": "La clause `WHERE` est utilisée pour filtrer les résultats d'une requête, tandis que la clause `HAVING` est utilisée pour filtrer les résultats d'une agrégation.",
+        "Réponse B": "La clause `WHERE` est utilisée pour filtrer les résultats d'une table, tandis que la clause `HAVING` est utilisée pour filtrer les résultats d'une colonne.",
+        "Réponse C": "La clause `WHERE` est utilisée pour filtrer les résultats d'une requête, tandis que la clause `HAVING` est utilisée pour filtrer les résultats d'une jointure.",
+        "Réponse D": "La clause `WHERE` est utilisée pour filtrer les résultats d'une requête, tandis que la clause `HAVING` est utilisée pour filtrer les résultats d'une fonction d'agrégation.",
+        "Answer": "La clause `WHERE` est utilisée pour filtrer les résultats d'une requête, tandis que la clause `HAVING` est utilisée pour filtrer les résultats d'une agrégation."
+      },
+      {
+        "question": "Quelles sont les différentes manières de joindre deux tables en SQL ?",
+        "Réponse A": "Les jointures internes, les jointures externes, les jointures naturelles et les jointures croisées.",
+        "Réponse B": "Les jointures internes, les jointures externes, les jointures par clé étrangère et les jointures par clé primaire.",
+        "Réponse C": "Les jointures internes, les jointures externes, les jointures par identifiant et les jointures par clé composite.",
+        "Réponse D": "Les jointures internes, les jointures externes, les jointures par clé primaire et les jointures par clé étrangère.",
+        "Answer": "Les jointures internes, les jointures externes, les jointures naturelles et les jointures croisées."
+      },
+
+      {
+        "question": "Quelle est la différence entre une clé primaire et une clé étrangère en SQL?",
+        "Réponse A": "Une clé primaire garantit l'unicité des valeurs dans une colonne, tandis qu'une clé étrangère établit une relation entre deux tables.",
+        "Réponse B": "Une clé primaire est utilisée pour ordonner les données dans une table, tandis qu'une clé étrangère est utilisée pour regrouper les données dans plusieurs tables.",
+        "Réponse C": "Une clé primaire est une contrainte d'intégrité référentielle, tandis qu'une clé étrangère est une contrainte d'unicité.",
+        "Réponse D": "Une clé primaire est une clé unique dans une table, tandis qu'une clé étrangère est une clé unique dans une autre table.",
+        "Answer": "Une clé primaire garantit l'unicité des valeurs dans une colonne, tandis qu'une clé étrangère établit une relation entre deux tables."
+      },
+      {
+        "question": "Quelle clause SQL est utilisée pour spécifier des conditions multiples dans une requête SELECT?",
+        "Réponse A": "WHERE",
+        "Réponse B": "AND",
+        "Réponse C": "OR",
+        "Réponse D": "BOTH",
+        "Answer": "AND"
+      },
+      {
+        "question": "Quelle commande SQL est utilisée pour insérer une nouvelle ligne dans une table?",
+        "Réponse A": "INSERT ROW",
+        "Réponse B": "ADD RECORD",
+        "Réponse C": "NEW LINE",
+        "Réponse D": "INSERT INTO",
+        "Answer": "INSERT INTO"
+      },
+      {
+        "question": "Qu'est-ce que la normalisation dans le contexte des bases de données relationnelles?",
+        "Réponse A": "La normalisation est le processus de réduire la redondance des données et d'améliorer l'intégrité des données en organisant les tables de manière spécifique.",
+        "Réponse B": "La normalisation est le processus de fusionner plusieurs tables en une seule table pour simplifier la structure de la base de données.",
+        "Réponse C": "La normalisation est le processus d'ajout de redondance aux données pour améliorer la rapidité des requêtes.",
+        "Réponse D": "La normalisation est le processus de créer des tables supplémentaires pour stocker des données similaires dans une base de données.",
+        "Answer": "La normalisation est le processus de réduire la redondance des données et d'améliorer l'intégrité des données en organisant les tables de manière spécifique."
+      },
+      {
+        "question": "Quelle est la fonction SQL utilisée pour supprimer des lignes d'une table sans supprimer la table elle-même?",
+        "Réponse A": "DELETE",
+        "Réponse B": "REMOVE",
+        "Réponse C": "DROP",
+        "Réponse D": "ERASE",
+        "Answer": "DELETE"
+      },
+      {
+        "question": "Qu'est-ce qu'une transaction SQL?",
+        "Réponse A": "Une transaction est une opération unique qui modifie les données dans une base de données.",
+        "Réponse B": "Une transaction est une requête SQL complexe impliquant plusieurs tables.",
+        "Réponse C": "Une transaction est une procédure stockée dans une base de données.",
+        "Réponse D": "Une transaction est une opération qui n'a pas d'impact sur la base de données.",
+        "Answer": "Une transaction est une opération unique qui modifie les données dans une base de données."
+      },
+      {
+        "question": "Quelle est la fonction SQL utilisée pour modifier les données dans une table?",
+        "Réponse A": "UPDATE",
+        "Réponse B": "MODIFY",
+        "Réponse C": "CHANGE",
+        "Réponse D": "MODIFICATION",
+        "Answer": "UPDATE"
+      },
+      {
+        "question": "Quelle clause SQL est utilisée pour trier les résultats d'une requête par ordre décroissant?",
+        "Réponse A": "ORDER ASC",
+        "Réponse B": "SORT DESC",
+        "Réponse C": "ORDER BY DESC",
+        "Réponse D": "DESCENDING",
+        "Answer": "ORDER BY DESC"
+      },
+      {
+        "question": "Quelle fonction SQL est utilisée pour compter le nombre de lignes dans une table?",
+        "Réponse A": "COUNT()",
+        "Réponse B": "SUM()",
+        "Réponse C": "TOTAL()",
+        "Réponse D": "NUM()",
+        "Answer": "COUNT()"
+      },
+      {
+        "question": "Quelle est la différence entre INNER JOIN et LEFT JOIN en SQL?",
+        "Réponse A": "INNER JOIN renvoie uniquement les lignes avec des correspondances dans les deux tables, tandis que LEFT JOIN renvoie toutes les lignes de la table de gauche et les correspondances de la table de droite.",
+        "Réponse B": "INNER JOIN renvoie toutes les lignes de la table de gauche et les correspondances de la table de droite, tandis que LEFT JOIN renvoie uniquement les lignes avec des correspondances dans les deux tables.",
+        "Réponse C": "INNER JOIN renvoie uniquement les lignes de la table de gauche, tandis que LEFT JOIN renvoie toutes les lignes de la table de gauche et les correspondances de la table de droite.",
+        "Réponse D": "INNER JOIN et LEFT JOIN sont des termes interchangeables en SQL.",
+        "Answer": "INNER JOIN renvoie uniquement les lignes avec des correspondances dans les deux tables, tandis que LEFT JOIN renvoie toutes les lignes de la table de gauche et les correspondances de la table de droite."
+      },
+      {
+        "question": "Quelle clause SQL est utilisée pour supprimer des données d'une table?",
+        "Réponse A": "DELETE FROM",
+        "Réponse B": "REMOVE",
+        "Réponse C": "DROP",
+        "Réponse D": "ERASE",
+        "Answer": "DELETE FROM"
+      },
+      {
+        "question": "Quelle commande SQL est utilisée pour ajouter une nouvelle colonne à une table existante?",
+        "Réponse A": "ALTER TABLE ADD COLUMN",
+        "Réponse B": "INSERT COLUMN",
+        "Réponse C": "ADD COLUMN",
+        "Réponse D": "NEW COLUMN",
+        "Answer": "ALTER TABLE ADD COLUMN"
+      },
+      {
+        "question": "Quelle est la différence entre UNION et UNION ALL en SQL?",
+        "Réponse A": "UNION renvoie toutes les lignes uniques, tandis que UNION ALL renvoie toutes les lignes, y compris les doublons.",
+        "Réponse B": "UNION renvoie toutes les lignes, y compris les doublons, tandis que UNION ALL renvoie toutes les lignes uniques.",
+        "Réponse C": "Il n'y a pas de différence entre UNION et UNION ALL en SQL.",
+        "Réponse D": "UNION ALL renvoie uniquement les lignes uniques, tandis que UNION renvoie toutes les lignes, y compris les doublons.",
+        "Answer": "UNION renvoie toutes les lignes uniques, tandis que UNION ALL renvoie toutes les lignes, y compris les doublons."
+      },
+      {
+        "question": "Quelle clause SQL est utilisée pour mettre à jour des données dans une table?",
+        "Réponse A": "MODIFY",
+        "Réponse B": "UPDATE",
+        "Réponse C": "CHANGE",
+        "Réponse D": "SET",
+        "Answer": "UPDATE"
+      },
+      {
+        "question": "Quelle commande SQL est utilisée pour supprimer une table?",
+        "Réponse A": "REMOVE TABLE",
+        "Réponse B": "DELETE TABLE",
+        "Réponse C": "DROP TABLE",
+        "Réponse D": "ERASE TABLE",
+        "Answer": "DROP TABLE"
+      },
+      {
+        "question": "Quelle est la fonction SQL utilisée pour retourner la longueur d'une chaîne de caractères?",
+        "Réponse A": "LEN()",
+        "Réponse B": "LENGTH()",
+        "Réponse C": "CHARLENGTH()",
+        "Réponse D": "STRINGLENGTH()",
+        "Answer": "LENGTH()"
+      },
+      {
+        "question": "Quelle clause SQL est utilisée pour limiter le nombre de lignes retournées par une requête?",
+        "Réponse A": "LIMIT",
+        "Réponse B": "TOP",
+        "Réponse C": "ROWLIMIT",
+        "Réponse D": "FETCH",
+        "Answer": "LIMIT"
+      },
+      {
+        "question": "Quelle est la fonction SQL utilisée pour obtenir la moyenne d'une colonne numérique?",
+        "Réponse A": "AVG()",
+        "Réponse B": "MEAN()",
+        "Réponse C": "AVERAGE()",
+        "Réponse D": "SUM() / COUNT()",
+        "Answer": "AVG()"
+      },
+      {
+        "question": "Quelle clause SQL est utilisée pour regrouper les résultats d'une requête en fonction des valeurs d'une colonne?",
+        "Réponse A": "GROUP BY",
+        "Réponse B": "SORT BY",
+        "Réponse C": "ORDER GROUP",
+        "Réponse D": "CATEGORY BY",
+        "Answer": "GROUP BY"
+      },
+      {
+        "question": "Quelle commande SQL est utilisée pour ajouter une contrainte d'intégrité référentielle à une table?",
+        "Réponse A": "ADD CONSTRAINT",
+        "Réponse B": "SET FOREIGN KEY",
+        "Réponse C": "CREATE REFERENCE",
+        "Réponse D": "LINK FOREIGN",
+        "Answer": "ADD CONSTRAINT"
+      },
+      {
+        "question": "Quelle clause SQL est utilisée pour trier les résultats d'une requête par ordre croissant?",
+        "Réponse A": "ORDER BY ASC",
+        "Réponse B": "SORT BY",
+        "Réponse C": "ASCENDING",
+        "Réponse D": "SORT ASC",
+        "Answer": "ORDER BY ASC"
+      }
+
+
+
+
+    ],
+    "Actualité IA": [
+    
+      {
+        "question": "Quel concept d'apprentissage machine vise à permettre aux algorithmes d'apprendre sans être explicitement programmés?",
+        "Réponse A": "Machine Teaching",
+        "Réponse B": "Apprentissage supervisé",
+        "Réponse C": "Apprentissage non supervisé",
+        "Réponse D": "Apprentissage par renforcement",
+        "Answer": "Apprentissage non supervisé"
+      },
+      {
+        "question": "Quelle méthode d'apprentissage machine est utilisée pour regrouper des données similaires sans étiquettes prédéfinies?",
+        "Réponse A": "Clustering",
+        "Réponse B": "Classification",
+        "Réponse C": "Régression",
+        "Réponse D": "Analyse discriminante",
+        "Answer": "Clustering"
+      },
+      {
+        "question": "Quel est le principal domaine d'application de l'intelligence artificielle aujourd'hui ?",
+        "Réponse A": "La reconnaissance d'images",
+        "Réponse B": "La reconnaissance vocale",
+        "Réponse C": "La traduction automatique",
+        "Réponse D": "La robotique",
+        "Answer": "La reconnaissance d'images"
+      },
+      {
+        "question": "Quel est le principal défi éthique lié au développement de l'IA ?",
+        "Réponse A": "Le manque de transparence dans les algorithmes",
+        "Réponse B": "La discrimination",
+        "Réponse C": "La sécurité",
+        "Réponse D": "La confidentialité",
+        "Answer": "Le manque de transparence dans les algorithmes"
+      },
+      {
+        "question": "Quel est le principal avantage de l'utilisation de l'IA dans la santé ?",
+        "Réponse A": "La possibilité de personnaliser les traitements médicaux",
+        "Réponse B": "La possibilité de détecter les maladies plus tôt",
+        "Réponse C": "La possibilité de réduire les coûts des soins de santé",
+        "Réponse D": "La possibilité de rendre les soins de santé plus accessibles",
+        "Answer": "La possibilité de personnaliser les traitements médicaux"
+      },
+      {
+        "question": "Quel est le principal risque de l'utilisation de l'IA dans la défense ?",
+        "Réponse A": "La possibilité de créer des armes autonomes",
+        "Réponse B": "La possibilité de réduire l'emploi dans l'industrie de la défense",
+        "Réponse C": "La possibilité de créer des systèmes de surveillance plus efficaces",
+        "Réponse D": "La possibilité de saper la confiance entre les nations",
+        "Answer": "La possibilité de créer des armes autonomes"
+      },
+      {
+        "question": "Quel est le principal impact de l'IA sur l'emploi ?",
+        "Réponse A": "L'IA créera de nouveaux emplois, mais elle en supprimera également certains.",
+        "Réponse B": "L'IA créera de nouveaux emplois, mais elle n'en supprimera aucun.",
+        "Réponse C": "L'IA supprimera des emplois, mais elle n'en créera aucun.",
+        "Réponse D": "L'IA n'aura aucun impact sur l'emploi.",
+        "Answer": "L'IA créera de nouveaux emplois, mais elle en supprimera également certains."
+      },
+      {
+        "question": "Quelle est la dernière percée majeure dans la recherche sur l'IA ?",
+        "Réponse A": "La création d'un modèle d'IA capable de générer des images réalistes à partir de rien",
+        "Réponse B": "La création d'un modèle d'IA capable de traduire des langues avec une précision sans précédent",
+        "Réponse C": "La création d'un modèle d'IA capable de jouer à des jeux vidéo avec une maîtrise humaine",
+        "Réponse D": "La création d'un modèle d'IA capable de répondre à des questions de manière informative, même si elles sont ouvertes, difficiles ou étranges.",
+        "Answer": "La création d'un modèle d'IA capable de générer des images réalistes à partir de rien"
+      },
+      {
+        "question": "Quelle est la dernière application de l'IA qui a suscité l'intérêt du grand public ?",
+        "Réponse A": "L'utilisation de l'IA pour créer des avatars réalistes pour les jeux vidéo",
+        "Réponse B": "L'utilisation de l'IA pour créer des assistants virtuels qui peuvent répondre aux questions et effectuer des tâches pour les utilisateurs",
+        "Réponse C": "L'utilisation de l'IA pour détecter les fraudes et les abus financiers",
+        "Réponse D": "L'utilisation de l'IA pour traiter les maladies et développer de nouveaux traitements",
+        "Answer": "L'utilisation de l'IA pour créer des avatars réalistes pour les jeux vidéo"
+      },
+      {
+        "question": "Quels sont les principaux défis éthiques liés à l'utilisation de l'IA ?",
+        "Réponse A": "Le risque de discrimination et de biais",
+        "Réponse B": "Le risque de perte d'emplois",
+        "Réponse C": "Le risque d'utilisation de l'IA à des fins malveillantes [Image d'un système d'IA utilisé à des fins malveillantes]",
+        "Réponse D": "Tous les éléments ci-dessus",
+        "Answer": "Tous les éléments ci-dessus"
+      },
+      {
+        "question": "Quels sont les principaux pays qui investissent dans la recherche sur l'IA ?",
+        "Réponse A": "Les États-Unis [Image d'un drapeau américain]",
+        "Réponse B": "La Chine [Image d'un drapeau chinois]",
+        "Réponse C": "L'Union européenne [Image d'un drapeau de l'Union européenne]",
+        "Réponse D": "Le Japon [Image d'un drapeau japonais]",
+        "Answer": "Les États-Unis, la Chine et l'Union européenne"
+      },
+      {
+        "question": "Quel nouveau règlement sur l'IA a été adopté par l'Union européenne ?",
+        "Réponse A": "Le règlement interdit l'utilisation d'IA pour certaines applications, telles que le développement d'armes autonomes.",
+        "Réponse B": "Le règlement exige une évaluation des risques pour toute utilisation d'IA présentant un risque élevé.",
+        "Réponse C": "Le règlement autorise l'utilisation d'IA sans restrictions.",
+        "Réponse D": "Le règlement vise à encourager le développement d'armes autonomes.",
+        "Answer": "Le règlement interdit l'utilisation d'IA pour certaines applications, telles que le développement d'armes autonomes, et exige une évaluation des risques pour toute utilisation d'IA présentant un risque élevé."
+      },
+      {
+        "question": "Quelle annonce Google a-t-il faite concernant l'IA ?",
+        "Réponse A": "Google va développer un nouveau modèle d'IA pour améliorer la traduction automatique.",
+        "Réponse B": "Google investira 10 milliards de dollars dans la recherche sur l'IA.",
+        "Réponse C": "Google va développer un modèle d'IA capable de générer du code informatique.",
+        "Réponse D": "Google va lancer une nouvelle application basée sur l'IA.",
+        "Answer": "Google a annoncé qu'il allait développer un nouveau modèle d'IA capable de générer du code informatique. Ce modèle pourrait être utilisé pour automatiser la création de logiciels et faciliter le développement de nouvelles applications."
+      },
+      {
+        "question": "Quelle annonce Meta a-t-il faite concernant l'IA ?",
+        "Réponse A": "Meta va développer un nouveau réseau social basé sur l'IA.",
+        "Réponse B": "Meta investira 10 milliards de dollars dans le développement de l'IA.",
+        "Réponse C": "Meta va utiliser l'IA pour améliorer ses produits tels que Facebook, Instagram et WhatsApp.",
+        "Réponse D": "Meta va créer un laboratoire de recherche sur l'IA.",
+        "Answer": "Meta a annoncé qu'il allait investir 10 milliards de dollars dans la recherche sur l'IA. L'entreprise prévoit d'utiliser l'IA pour améliorer ses produits et services, tels que Facebook, Instagram et WhatsApp."
+      },
+      {
+        "question": "Quel est l'un des principaux défis de l'IA ?",
+        "Réponse A": "Le risque de discrimination et de biais.",
+        "Réponse B": "La difficulté de former des modèles d'IA.",
+        "Réponse C": "Le manque de puissance de calcul.",
+        "Réponse D": "Le manque d'applications pratiques de l'IA.",
+        "Answer": "L'un des principaux défis de l'IA est la possibilité de biais. Les algorithmes d'IA peuvent être influencés par les préjugés des données sur lesquelles ils sont formés, ce qui peut conduire à des discriminations."
+      }
+      
+      
+
+    ],
+    "Python": [
+      {
+        "question": "Comment déclare-t-on une fonction en Python?",
+        "Réponse A": "def fonction():",
+        "Réponse B": "function():",
+        "Réponse C": "declare fonction():",
+        "Réponse D": "function = def():",
+        "Answer": "def fonction():"
+      },
+      {
+        "question": "Quelle est la sortie de ce code en Python : print(2 ** 3)?",
+        "Réponse A": "6",
+        "Réponse B": "8",
+        "Réponse C": "16",
+        "Réponse D": "5",
+        "Answer": "8"
+      },
+      {
+        "question": "Quel est le résultat de cette expression Python : 5 != 7 ?",
+        "Réponse A": "True",
+        "Réponse B": "False",
+        "Réponse C": "2",
+        "Réponse D": "Error",
+        "Answer": "True"
+      },
+      {
+        "question": "Quelle est la différence entre une liste et un tuple en Python?",
+        "Réponse A": "Les listes sont immuables, tandis que les tuples sont mutables.",
+        "Réponse B": "Les tuples sont immuables, tandis que les listes sont mutables.",
+        "Réponse C": "Les deux sont mutables.",
+        "Réponse D": "Les deux sont immuables.",
+        "Answer": "Les listes sont mutables, tandis que les tuples sont immuables."
+      },
+      {
+        "question": "Comment ouvrir un fichier en mode écriture ('write') en Python?",
+        "Réponse A": "open('fichier.txt', 'r')",
+        "Réponse B": "open('fichier.txt', 'write')",
+        "Réponse C": "open('fichier.txt', 'w')",
+        "Réponse D": "open('fichier.txt', 'read')",
+        "Answer": "open('fichier.txt', 'w')"
+      },
+      {
+        "question": "Quelle est la sortie de ce code Python : print(len('python'))?",
+        "Réponse A": "5",
+        "Réponse B": "6",
+        "Réponse C": "7",
+        "Réponse D": "8",
+        "Answer": "6"
+      },
+      {
+        "question": "Comment supprimer un élément d'une liste en Python?",
+        "Réponse A": "delete",
+        "Réponse B": "remove",
+        "Réponse C": "erase",
+        "Réponse D": "pop",
+        "Answer": "remove"
+      },
+      {
+        "question": "Quelle est la différence entre '==' et 'is' en Python?",
+        "Réponse A": "'==' est utilisé pour la comparaison de référence, tandis que 'is' est utilisé pour la comparaison de valeur.",
+        "Réponse B": "'is' est utilisé pour la comparaison de référence, tandis que '==' est utilisé pour la comparaison de valeur.",
+        "Réponse C": "Les deux sont utilisés pour la comparaison de référence.",
+        "Réponse D": "Les deux sont utilisés pour la comparaison de valeur.",
+        "Answer": "'==' est utilisé pour la comparaison de valeur, tandis que 'is' est utilisé pour la comparaison de référence."
+      },
+      {
+        "question": "Quelle est la différence entre 'append' et 'extend' pour une liste en Python?",
+        "Réponse A": "'append' ajoute un élément unique à la fin de la liste, tandis que 'extend' ajoute les éléments d'une séquence (liste, tuple, etc.) à la fin de la liste.",
+        "Réponse B": "'extend' ajoute un élément unique à la fin de la liste, tandis que 'append' ajoute les éléments d'une séquence (liste, tuple, etc.) à la fin de la liste.",
+        "Réponse C": "Les deux sont interchangeables et font la même chose.",
+        "Réponse D": "Ni 'append' ni 'extend' ne peuvent être utilisés pour ajouter des éléments à une liste.",
+        "Answer": "'append' ajoute un élément unique à la fin de la liste, tandis que 'extend' ajoute les éléments d'une séquence (liste, tuple, etc.) à la fin de la liste."
+      },
+      {
+        "question": "Quelle fonction Python est utilisée pour obtenir la longueur d'une liste?",
+        "Réponse A": "size()",
+        "Réponse B": "length()",
+        "Réponse C": "len()",
+        "Réponse D": "count()",
+        "Answer": "len()"
+      },
+      {
+        "question": "Quelle est la signification du mot-clé 'self' dans une classe Python?",
+        "Réponse A": "Il fait référence à la classe elle-même.",
+        "Réponse B": "Il fait référence à l'instance de la classe.",
+        "Réponse C": "Il est utilisé pour appeler une méthode de la classe.",
+        "Réponse D": "Il est utilisé pour définir une variable de classe.",
+        "Answer": "Il fait référence à l'instance de la classe."
+      },
+      {
+        "question": "Comment définir une fonction lambda en Python?",
+        "Réponse A": "func = lambda () : expression",
+        "Réponse B": "def func() : expression",
+        "Réponse C": "lambda func() : expression",
+        "Réponse D": "lambda : expression",
+        "Answer": "lambda : expression"
+      },
+      {
+        "question": "Quelle est la différence entre 'range' et 'xrange' en Python?",
+        "Réponse A": "'range' renvoie une liste, tandis que 'xrange' renvoie un objet xrange.",
+        "Réponse B": "'xrange' renvoie une liste, tandis que 'range' renvoie un objet range.",
+        "Réponse C": "Les deux font la même chose et peuvent être utilisés de manière interchangeable.",
+        "Réponse D": "Il n'y a pas de fonction 'xrange' en Python.",
+        "Answer": "'range' renvoie une liste, tandis que 'xrange' renvoie un objet xrange."
+      },
+      {
+        "question": "Quelle méthode est utilisée pour ouvrir un fichier en mode écriture en Python?",
+        "Réponse A": "open('fichier.txt', 'r')",
+        "Réponse B": "open('fichier.txt', 'w')",
+        "Réponse C": "open('fichier.txt', 'a')",
+        "Réponse D": "open('fichier.txt', 'x')",
+        "Answer": "open('fichier.txt', 'w')"
+      },
+      {
+        "question": "Comment convertir une chaîne en majuscules en Python?",
+        "Réponse A": "str.upper()",
+        "Réponse B": "str.toUpper()",
+        "Réponse C": "str.casefold()",
+        "Réponse D": "str.capitalize()",
+        "Answer": "str.upper()"
+      },
+      {
+        "question": "Quelle est la sortie de ce code Python : print('Hello' + 3 * '!')?",
+        "Réponse A": "Hello!!!",
+        "Réponse B": "Hello!Hello!Hello!",
+        "Réponse C": "Hello3!",
+        "Réponse D": "Erreur",
+        "Answer": "Hello!!!"
+      },
+      {
+        "question": "Quelle fonction est utilisée pour obtenir une liste des clés d'un dictionnaire en Python?",
+        "Réponse A": "keys()",
+        "Réponse B": "get_keys()",
+        "Réponse C": "list_keys()",
+        "Réponse D": "dict_keys()",
+        "Answer": "keys()"
+      },
+      {
+        "question": "Quelle est la méthode utilisée pour supprimer le dernier élément d'une liste en Python?",
+        "Réponse A": "pop()",
+        "Réponse B": "remove_last()",
+        "Réponse C": "delete_last()",
+        "Réponse D": "del()",
+        "Answer": "pop()"
+      },
+      {
+        "question": "Comment vérifier si une clé existe dans un dictionnaire en Python?",
+        "Réponse A": "contains_key()",
+        "Réponse B": "key_exists()",
+        "Réponse C": "in",
+        "Réponse D": "exist()",
+        "Answer": "in"
+      },
+      {
+        "question": "Quelle est la méthode utilisée pour trier une liste en Python?",
+        "Réponse A": "sort()",
+        "Réponse B": "order()",
+        "Réponse C": "arrange()",
+        "Réponse D": "sorted()",
+        "Answer": "sort()"
+      },
+      {
+        "question": "Quelle est la différence entre les listes et les tuples en Python?",
+        "Réponse A": "Les listes sont mutables, les tuples sont immuables.",
+        "Réponse B": "Les listes sont immuables, les tuples sont mutables.",
+        "Réponse C": "Les listes et les tuples sont mutables.",
+        "Réponse D": "Il n'y a pas de différence.",
+        "Answer": "Les listes sont mutables, les tuples sont immuables."
+      },
+      {
+        "question": "Comment convertir une chaîne de caractères en minuscules en Python?",
+        "Réponse A": "str.lowercase()",
+        "Réponse B": "to_lower()",
+        "Réponse C": "lower()",
+        "Réponse D": "str.to_lowercase()",
+        "Answer": "lower()"
+      },
+      {
+        "question": "Quelle est la fonction pour générer un nombre entier aléatoire dans un certain intervalle en Python?",
+        "Réponse A": "random.int()",
+        "Réponse B": "randint()",
+        "Réponse C": "randomize()",
+        "Réponse D": "randrange()",
+        "Answer": "randrange()"
+      },
+      {
+        "question": "Quelle fonction est utilisée pour inverser l'ordre des éléments d'une liste en Python?",
+        "Réponse A": "reverse()",
+        "Réponse B": "invert()",
+        "Réponse C": "flip()",
+        "Réponse D": "list.reverse()",
+        "Answer": "reverse()"
+      },
+      {
+        "question": "Comment obtenir la valeur par défaut d'un dictionnaire pour une clé donnée en Python?",
+        "Réponse A": "get()",
+        "Réponse B": "retrieve()",
+        "Réponse C": "fetch()",
+        "Réponse D": "value()",
+        "Answer": "get()"
+      },
+      {
+        "question": "Comment déclarer une fonction lambda en Python?",
+        "Réponse A": "lambda function() {}",
+        "Réponse B": "function lambda() {}",
+        "Réponse C": "lambda: {}",
+        "Réponse D": "def lambda(): {}",
+        "Answer": "lambda: {}"
+      }
+
+
+    ],
+    "Git_Github": [
+      {
+        "question": "Comment crée-t-on une nouvelle branche en utilisant Git?",
+        "Réponse A": "git new-branch <nom_de_branche>",
+        "Réponse B": "git branch <nom_de_branche>",
+        "Réponse C": "git checkout -b <nom_de_branche>",
+        "Réponse D": "git branch -create <nom_de_branche>",
+        "Answer": "git checkout -b <nom_de_branche>"
+      },
+      {
+        "question": "Quelle commande Git est utilisée pour fusionner une branche dans la branche actuelle?",
+        "Réponse A": "git merge <nom_de_branche>",
+        "Réponse B": "git branch -merge <nom_de_branche>",
+        "Réponse C": "git pull <nom_de_branche>",
+        "Réponse D": "git merge branch <nom_de_branche>",
+        "Answer": "git merge <nom_de_branche>"
+      },
+      {
+        "question": "Comment ajoute-t-on tous les fichiers modifiés pour être indexés dans Git?",
+        "Réponse A": "git add .",
+        "Réponse B": "git commit -a",
+        "Réponse C": "git stage-all",
+        "Réponse D": "git push -all",
+        "Answer": "git add ."
+      },
+      {
+        "question": "Quelle commande Git est utilisée pour annuler les modifications locales non validées?",
+        "Réponse A": "git reset",
+        "Réponse B": "git undo",
+        "Réponse C": "git revert",
+        "Réponse D": "git discard",
+        "Answer": "git reset"
+      },
+      {
+        "question": "Comment créer une copie de sauvegarde temporaire des modifications non validées dans Git?",
+        "Réponse A": "git stash save",
+        "Réponse B": "git backup",
+        "Réponse C": "git store",
+        "Réponse D": "git commit -m 'Backup'",
+        "Answer": "git stash save"
+      },
+      {
+        "question": "Quelle commande Git est utilisée pour voir l'historique des validations (commits)?",
+        "Réponse A": "git log",
+        "Réponse B": "git history",
+        "Réponse C": "git show",
+        "Réponse D": "git status",
+        "Answer": "git log"
+      },
+      {
+        "question": "Comment créer une nouvelle branche en Git sans changer de branche actuelle?",
+        "Réponse A": "git branch <nom_de_branche>",
+        "Réponse B": "git checkout -b <nom_de_branche>",
+        "Réponse C": "git create-branch <nom_de_branche>",
+        "Réponse D": "git new-branch <nom_de_branche>",
+        "Answer": "git branch <nom_de_branche>"
+      },
+      {
+        "question": "Quelle commande Git est utilisée pour supprimer une branche?",
+        "Réponse A": "git branch -delete <nom_de_branche>",
+        "Réponse B": "git delete <nom_de_branche>",
+        "Réponse C": "git remove-branch <nom_de_branche>",
+        "Réponse D": "git branch -d <nom_de_branche>",
+        "Answer": "git branch -d <nom_de_branche>"
+      },
+      {
+        "question": "Quelle commande Git est utilisée pour annuler le dernier commit tout en conservant les modifications?",
+        "Réponse A": "git cancel",
+        "Réponse B": "git undo-commit",
+        "Réponse C": "git revert",
+        "Réponse D": "git amend",
+        "Answer": "git revert"
+      },
+      {
+        "question": "Comment ignorer un fichier spécifique dans Git?",
+        "Réponse A": ".gitignore",
+        "Réponse B": ".gitexclude",
+        "Réponse C": ".gitremove",
+        "Réponse D": ".gitblock",
+        "Answer": ".gitignore"
+      },
+      {
+        "question": "Quelle commande Git permet de mettre à jour votre répertoire de travail pour correspondre à la version la plus récente de la branche actuelle?",
+        "Réponse A": "git update",
+        "Réponse B": "git pull",
+        "Réponse C": "git sync",
+        "Réponse D": "git fetch",
+        "Answer": "git pull"
+      },
+      {
+        "question": "Comment créer un tag annoté en Git?",
+        "Réponse A": "git create-tag",
+        "Réponse B": "git tag -a",
+        "Réponse C": "git annotate",
+        "Réponse D": "git tag -m",
+        "Answer": "git tag -a"
+      },
+      {
+        "question": "Quelle est la différence entre 'git pull' et 'git fetch'?",
+        "Réponse A": "'git pull' fusionne les modifications depuis la branche distante, tandis que 'git fetch' récupère les modifications mais ne les fusionne pas automatiquement.",
+        "Réponse B": "'git pull' récupère les modifications mais ne les fusionne pas automatiquement, tandis que 'git fetch' fusionne les modifications depuis la branche distante.",
+        "Réponse C": "Il n'y a pas de différence, ce sont des synonymes.",
+        "Réponse D": "'git pull' et 'git fetch' sont utilisés de manière interchangeable.",
+        "Answer": "'git pull' fusionne les modifications depuis la branche distante, tandis que 'git fetch' récupère les modifications mais ne les fusionne pas automatiquement."
+      },
+      {
+        "question": "Comment annuler les modifications locales non validées dans votre copie de travail?",
+        "Réponse A": "git cancel",
+        "Réponse B": "git discard",
+        "Réponse C": "git reset --hard",
+        "Réponse D": "git revert",
+        "Answer": "git reset --hard"
+      },
+      {
+        "question": "Quelle commande Git est utilisée pour annuler la dernière validation (commit) tout en conservant les modifications dans la copie de travail?",
+        "Réponse A": "git undo",
+        "Réponse B": "git reset --soft HEAD^",
+        "Réponse C": "git revert HEAD",
+        "Réponse D": "git cancel-commit",
+        "Answer": "git reset --soft HEAD^"
+      },
+      {
+        "question": "Quelle commande Git est utilisée pour afficher les modifications non validées dans votre copie de travail?",
+        "Réponse A": "git diff",
+        "Réponse B": "git status",
+        "Réponse C": "git show",
+        "Réponse D": "git changes",
+        "Answer": "git status"
+      },
+      {
+        "question": "Quelle commande Git est utilisée pour récupérer les modifications depuis le dépôt distant sans fusionner?",
+        "Réponse A": "git fetch",
+        "Réponse B": "git pull --no-merge",
+        "Réponse C": "git sync",
+        "Réponse D": "git remote-update",
+        "Answer": "git fetch"
+      },
+      {
+        "question": "Comment créer un tag annoté avec Git?",
+        "Réponse A": "git create-tag",
+        "Réponse B": "git tag -a",
+        "Réponse C": "git annotate",
+        "Réponse D": "git tag-create",
+        "Answer": "git tag -a"
+      }
+      
+
+    ],
+    "Ligne de commande Terminal Linux": [
+      {
+        "question": "Quelle commande est utilisée pour afficher le répertoire de travail actuel dans le terminal?",
+        "Réponse A": "ls",
+        "Réponse B": "pwd",
+        "Réponse C": "cd",
+        "Réponse D": "dir",
+        "Answer": "pwd"
+      },
+      {
+        "question": "Comment supprime-t-on un fichier dans le terminal Linux?",
+        "Réponse A": "delete <nom_fichier>",
+        "Réponse B": "rm <nom_fichier>",
+        "Réponse C": "erase <nom_fichier>",
+        "Réponse D": "del <nom_fichier>",
+        "Answer": "rm <nom_fichier>"
+      },
+      {
+        "question": "Quelle commande est utilisée pour lister tous les processus en cours d'exécution dans le terminal Linux?",
+        "Réponse A": "top",
+        "Réponse B": "list",
+        "Réponse C": "ps",
+        "Réponse D": "show processes",
+        "Answer": "ps"
+      },
+      {
+        "question": "Quelle commande Linux est utilisée pour créer un nouveau répertoire?",
+        "Réponse A": "mkdir",
+        "Réponse B": "newdir",
+        "Réponse C": "create-dir",
+        "Réponse D": "touch",
+        "Answer": "mkdir"
+      },
+      {
+        "question": "Comment renomme-t-on un fichier dans le terminal Linux?",
+        "Réponse A": "rename",
+        "Réponse B": "move",
+        "Réponse C": "mv",
+        "Réponse D": "rn",
+        "Answer": "mv"
+      },
+      {
+        "question": "Quelle commande est utilisée pour afficher le contenu d'un fichier texte dans le terminal?",
+        "Réponse A": "view",
+        "Réponse B": "cat",
+        "Réponse C": "read",
+        "Réponse D": "show",
+        "Answer": "cat"
+      },
+      {
+        "question": "Comment copier récursivement un répertoire dans le terminal Linux?",
+        "Réponse A": "copy -r",
+        "Réponse B": "cp -r",
+        "Réponse C": "cp -rec",
+        "Réponse D": "copy -rec",
+        "Answer": "cp -r"
+      },
+      {
+        "question": "Quelle commande est utilisée pour changer les permissions d'un fichier dans le terminal?",
+        "Réponse A": "chmod",
+        "Réponse B": "chperm",
+        "Réponse C": "permissions",
+        "Réponse D": "permchange",
+        "Answer": "chmod"
+      },
+      {
+        "question": "Comment compresser un fichier ou un répertoire dans le terminal Linux?",
+        "Réponse A": "zip",
+        "Réponse B": "tar",
+        "Réponse C": "compress",
+        "Réponse D": "gzip",
+        "Answer": "tar"
+      },
+      {
+        "question": "Quelle commande permet de décompresser un fichier compressé avec tar dans le terminal?",
+        "Réponse A": "unzip",
+        "Réponse B": "gunzip",
+        "Réponse C": "untar",
+        "Réponse D": "extract",
+        "Answer": "tar -xvf"
+      },
+      {
+        "question": "Comment afficher l'espace disque disponible sur le système dans le terminal Linux?",
+        "Réponse A": "df",
+        "Réponse B": "disk",
+        "Réponse C": "space",
+        "Réponse D": "diskfree",
+        "Answer": "df"
+      },
+      {
+        "question": "Quelle commande permet de déconnecter un utilisateur dans le terminal Linux?",
+        "Réponse A": "disconnect",
+        "Réponse B": "logoff",
+        "Réponse C": "logout",
+        "Réponse D": "kickuser",
+        "Answer": "logout"
+      },
+      {
+        "question": "Comment rechercher un fichier spécifique dans le système à l'aide du terminal?",
+        "Réponse A": "search",
+        "Réponse B": "find",
+        "Réponse C": "locate",
+        "Réponse D": "searchfile",
+        "Answer": "find"
+      }
+    ],
+
+    
+
+      
+    "Recherche d'emploi et recrutement": [
+    {
+      "question": "Quelles sont les étapes clés à suivre lors du processus de recrutement ?",
+      "Réponse A": "La publication de l'offre d'emploi.",
+      "Réponse B": "La présélection des candidats.",
+      "Réponse C": "Les entretiens individuels.",
+      "Réponse D": "Toutes les réponses ci-dessus.",
+      "Answer": "Toutes les réponses ci-dessus."
+    },
+    {
+      "question": "Comment se préparer efficacement pour un entretien d'embauche ?",
+      "Réponse A": "En recherchant des informations sur l'entreprise.",
+      "Réponse B": "En pratiquant les réponses aux questions fréquentes.",
+      "Réponse C": "En dressant la liste de vos réalisations professionnelles.",
+      "Réponse D": "Toutes les réponses ci-dessus.",
+      "Answer": "Toutes les réponses ci-dessus."
+    },
+  
+    {
+      "question": "Quelle est l'importance d'une lettre de motivation personnalisée ?",
+      "Réponse A": "Elle démontre votre capacité à suivre les règles.",
+      "Réponse B": "Elle permet de montrer votre intérêt spécifique pour le poste.",
+      "Réponse C": "Elle remplace souvent le CV dans le processus de sélection.",
+      "Réponse D": "Elle n'est pas vraiment importante.",
+      "Answer": "Elle permet de montrer votre intérêt spécifique pour le poste."
+    },
+    {
+      "question": "Comment conclure une lettre de motivation de manière impactante ?",
+      "Réponse A": "En réitérant vos compétences.",
+      "Réponse B": "En exprimant votre enthousiasme pour le poste.",
+      "Réponse C": "En demandant un entretien.",
+      "Réponse D": "En remerciant simplement.",
+      "Answer": "En demandant un entretien."
+    },
+  
+    {
+      "question": "Quels sont les éléments clés à inclure dans la section 'Expérience Professionnelle' d'un CV ?",
+      "Réponse A": "Les noms des entreprises uniquement.",
+      "Réponse B": "Les titres des postes, les dates d'emploi et les réalisations.",
+      "Réponse C": "Uniquement les tâches quotidiennes effectuées.",
+      "Réponse D": "Les loisirs et intérêts personnels.",
+      "Answer": "Les titres des postes, les dates d'emploi et les réalisations."
+    },
+    {
+      "question": "Pourquoi est-il important d'adapter son CV à chaque candidature ?",
+      "Réponse A": "Pour montrer que vous avez travaillé pour de nombreuses entreprises différentes.",
+      "Réponse B": "Pour refléter spécifiquement les compétences requises pour le poste.",
+      "Réponse C": "Pour ajouter du volume au CV.",
+      "Réponse D": "Pour inclure toutes vos expériences, même non pertinentes.",
+      "Answer": "Pour refléter spécifiquement les compétences requises pour le poste."
+    },
+
+    {
+      "question": "Qu'est-ce qui distingue un bon entretien d'embauche ?",
+      "Réponse A": "Répondre rapidement aux questions.",
+      "Réponse B": "Montrer une compréhension approfondie de l'entreprise.",
+      "Réponse C": "Ne pas poser de questions à l'employeur.",
+      "Réponse D": "Fournir des réponses vagues.",
+      "Answer": "Montrer une compréhension approfondie de l'entreprise."
+    },
+    {
+      "question": "Comment répondre à la question 'Parlez-moi de vous' de manière efficace ?",
+      "Réponse A": "En partageant des informations personnelles non pertinentes.",
+      "Réponse B": "En résumant brièvement votre expérience professionnelle et vos compétences.",
+      "Réponse C": "En évitant de mentionner vos réalisations.",
+      "Réponse D": "En parlant uniquement de vos loisirs.",
+      "Answer": "En résumant brièvement votre expérience professionnelle et vos compétences."
+    },
+    {
+      "question": "Pourquoi est-il important de poser des questions à la fin de l'entretien ?",
+      "Réponse A": "Pour montrer que vous êtes impatient de quitter l'entretien.",
+      "Réponse B": "Pour clarifier toutes les questions restées sans réponse.",
+      "Réponse C": "Les questions ne sont pas vraiment importantes à la fin.",
+      "Réponse D": "Pour éviter de prolonger l'entretien.",
+      "Answer": "Pour clarifier toutes les questions restées sans réponse."
+    },
+    {
+      "question": "Comment traiter la question 'Quels sont vos points faibles' ?",
+      "Réponse A": "En disant que vous n'avez pas de points faibles.",
+      "Réponse B": "En mentionnant un vrai défi rencontré et comment vous l'avez surmonté.",
+      "Réponse C": "En évitant la question.",
+      "Réponse D": "En critiquant vos anciens employeurs.",
+      "Answer": "En mentionnant un vrai défi rencontré et comment vous l'avez surmonté."
+    },
+    {
+      "question": "Quels conseils donneriez-vous pour gérer le stress pendant un entretien d'embauche ?",
+      "Réponse A": "En consommant beaucoup de café avant l'entretien.",
+      "Réponse B": "En pratiquant des techniques de respiration profonde.",
+      "Réponse C": "En évitant de se préparer à l'avance.",
+      "Réponse D": "En ne montrant aucune émotion.",
+      "Answer": "En pratiquant des techniques de respiration profonde."
+    },
+    {
+      "question": "Pourquoi est-il essentiel de faire des recherches sur l'entreprise avant l'entretien ?",
+      "Réponse A": "Cela n'a pas d'importance, car les employeurs ne posent jamais de questions à ce sujet.",
+      "Réponse B": "Pour montrer que vous êtes un expert en tout.",
+      "Réponse C": "Pour personnaliser vos réponses et démontrer votre intérêt pour l'entreprise.",
+      "Réponse D": "Pour éviter de répondre aux questions sur l'entreprise.",
+      "Answer": "Pour personnaliser vos réponses et démontrer votre intérêt pour l'entreprise."
+    },
+    {
+      "question": "Comment aborder la question 'Où vous voyez-vous dans cinq ans' ?",
+      "Réponse A": "En disant que vous n'avez aucune idée de ce que vous ferez dans cinq ans.",
+      "Réponse B": "En décrivant vos ambitions professionnelles et comment vous envisagez de contribuer à l'entreprise.",
+      "Réponse C": "En évitant de répondre à la question.",
+      "Réponse D": "En demandant à l'employeur de répondre en premier.",
+      "Answer": "En décrivant vos ambitions professionnelles et comment vous envisagez de contribuer à l'entreprise."
+    },
+    {
+      "question": "Quelle est la meilleure façon de conclure un entretien d'embauche ?",
+      "Réponse A": "En partant immédiatement une fois que toutes les questions ont été posées.",
+      "Réponse B": "En ne remerciant pas l'intervieweur pour son temps.",
+      "Réponse C": "En résumant brièvement pourquoi vous êtes le candidat idéal et en exprimant votre intérêt pour le poste.",
+      "Réponse D": "En évitant de demander quelles sont les prochaines étapes du processus de sélection.",
+      "Answer": "En résumant brièvement pourquoi vous êtes le candidat idéal et en exprimant votre intérêt pour le poste."
+    }
+  ]
+}
+
+      
+    
+  
+  

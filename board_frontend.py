@@ -2,47 +2,30 @@ import math
 
 import pygame
 
-from board import CASES
 from board_coordinates import calculate_all_pos
-from config import BACKGROUND, BLUE, BROWN, GREEN, GREY, ORANGE, PINK, YELLOW
-from config import HEIGHT, WIDTH
-from config import THEME_TO_COLOR
+from board_network import create_game_network
+from config import BACKGROUND, HEIGHT, WIDTH, BOX_RADIUS, BOX_TYPE_TO_COLOR
 
-
-# CONTOUR = [THEME_TO_COLOR[case] for case in CASES]
-# BRIDGES = [
-#     [BROWN, YELLOW, PINK, ORANGE, BLUE, GREEN, WHITE,
-#      ORANGE, PINK, GREEN, BLUE, BROWN, YELLOW],
-#     [BLUE, PINK, GREEN, YELLOW, ORANGE, BROWN, WHITE,
-#       YELLOW, GREEN, BROWN, ORANGE, BLUE, PINK],
-#     [ORANGE, GREEN, BROWN, PINK, YELLOW, BLUE, WHITE,
-#       PINK, BROWN, BLUE, YELLOW, ORANGE, GREEN]
-# ]
 
 # Displaying Screen
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("TrivIA Pursuit Board")
 
-# # Board Circle
-# BOARD_RADIUS = 250
-# CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2
-
-# Calculate all boxes positions
+# Calculate all boxes positions and create the game's network
 positions = calculate_all_pos()
+network = create_game_network()
 
 # MAIN RUN
 running = True
 
 while running:
     screen.fill(BACKGROUND)  # Official background
-
-    # Draw the contour
-    # pygame.draw.circle(screen, WHITE, (CENTER_X, CENTER_Y), BOARD_RADIUS, 2)
-
+    
     # Draw all the boxes
-    for color, pos in zip(CONTOUR, box_positions):
-        pygame.draw.circle(screen, color, pos, 18)
-
+    for idx, pos in enumerate(positions):
+        # Get the color from the network nodes
+        box_color = BOX_TYPE_TO_COLOR[network.nodes[idx]['box_type']]
+        pygame.draw.circle(screen, box_color, pos, BOX_RADIUS)
 
     # Event Loop
     for event in pygame.event.get():

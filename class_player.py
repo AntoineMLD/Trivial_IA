@@ -13,23 +13,18 @@ class Player:
         
         
 
-    def deplacement(self, steps):
-        self.position += steps
-
+    
     def lancer_de(self):
-        result = random.randint(1,6)
-
-
-        self.deplacement(result)
+        result = random.randint(1, 6)
 
         direction = input(f"{self.name}, voulez-vous vous déplacer vers la gauche (g) ou vers la droite (d) ? ").lower()
         if direction == 'g':
-            self.position -= 1
+            self.position -= result
         elif direction == 'd':
-            self.position += 1
+            self.position += result
         else:
-            print("Choix invalide. Veuillez tapez g ou d.")
-
+            print("Choix invalide. Veuillez taper g ou d.")
+            
 
     def poser_question(self, gestion_bdd):
         question = gestion_bdd.obtenir_question()

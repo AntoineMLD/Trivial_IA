@@ -1,35 +1,35 @@
 import random
 from class_question import Question
+from board_network import *
 
 class Player:
     def __init__(self, name):
         self.name = name
         self.score = 0
-        self.position = 0
+        self.position = central_node
         self.correct_answers_by_theme = {}  # Dictionnaire pour stocker le score par thème
-
-        
         
 
-    def deplacement(self, steps):
-        self.position += steps
-
+        
+         
     def lancer_de(self):
-        result = random.randint(1,6)
-
-
-        self.deplacement(result)
-
-        direction = input(f"{self.name}, voulez-vous vous déplacer vers la gauche (g) ou vers la droite (d) ? ").lower()
-        if direction == 'g':
-            self.position -= 1
-        elif direction == 'd':
-            self.position += 1
-        else:
-            print("Choix invalide. Veuillez tapez g ou d.")
-
-
-
+        result = random.randint(1, 6)
+    
+    def give_new_positions(self):
+        result = self.lancer_de()
+        
+        travel_possible = nx.shortest_path_length(G, self.position)
+        
+        path_possible = []
+        
+        for key,value in travel_possible.items():
+            if value == result:
+                path_possible.append(key)
+        return path_possible
+        
+    
+    
+    
     def poser_question(self, gestion_bdd):
         themes_disponibles = [
             "Recherche d'emploi et recrutement",
@@ -72,8 +72,9 @@ class Player:
 
     
 
-    
+joueur1 = Player()
 
+joueur1.lancer_de()
 
 
 

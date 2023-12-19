@@ -14,7 +14,7 @@ GREEN = (101, 183, 65)
 YELLOW = (254, 232, 37)
 PINK = (252, 111, 163)
 BROWN = (190, 124, 67)
-GREY = (236, 225, 205)  # Change this!
+GREY = (176, 166, 149)  # Change this!
 
 BOX_TYPE_TO_COLOR = {
     "*Spé": BROWN,

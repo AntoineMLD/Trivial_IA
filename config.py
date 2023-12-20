@@ -112,3 +112,11 @@ INDEX_TO_BOX_TYPE = {
 	71: "IA",
 	72: "Again"
 }
+
+# To translate board themes to db themes
+TRANSLATE_THEMES = {
+    "Spé": "Marché du travail",
+    "IA": "Actualité IA",
+    "Shell": "Commande Linux",
+    "Git": "Git_Github"   
+}

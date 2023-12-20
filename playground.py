@@ -13,7 +13,7 @@ def is_within_circle(center_x:int, center_y:int, radius:int, x:int, y:int) -> bo
     return (x - center_x) ** 2 + (y - center_y) ** 2 < radius ** 2
 
 
-def display_clickable_boxes(screen, indexes: List[int]):
+def display_new_positions(screen, indexes: List[int]):
     """
     Shows on board on which boxes a player can move after rolling the dice
     """

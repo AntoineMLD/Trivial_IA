@@ -7,7 +7,6 @@ import pygame
 from board_coordinates import calculate_all_pos
 from class_player import Player
 from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR, RING_COLOR, RING_WIDTH, WHITE
-from utils import CircularList  # Consider using deque
 
 
 def initialize_display() -> Tuple[pygame.surface.Surface, pygame.font.Font]:
@@ -95,7 +94,7 @@ def display_board(screen, network, positions: List[Tuple[int, int]]) -> None:
 
 # TODO: THIS IS A TOY VERSION
 # Especially, this needs as input the deque of players
-def display_scores(screen, font, players: deque(Player, ..., Player)) -> None:
+def display_scores(screen, font, players) -> None:
     # Define the area for displaying scores
     score_area = pygame.Rect(600, 100, 600, 240)  # Below the top zone
 
@@ -190,28 +189,28 @@ def display_question_and_handle_answer(screen, font, background_color, question,
 
 
 
-# Initialize PyGame
-screen, font = initialize_display()
-print(type(screen))
-print(type(font))
+# # Initialize PyGame
+# screen, font = initialize_display()
+# print(type(screen))
+# print(type(font))
 
-## INITIALIZE THE GAME
-# Get player names
-player_names = get_player_names(screen, font)
-print("Player Names:", player_names)
+# ## INITIALIZE THE GAME
+# # Get player names
+# player_names = get_player_names(screen, font)
+# print("Player Names:", player_names)
 
-# Initialize turn_order
-shuffle(player_names)
-player_turns = deque(player_names)
-print("TURN ORDER")
-print(player_turns)
+# # Initialize turn_order
+# shuffle(player_names)
+# player_turns = deque(player_names)
+# print("TURN ORDER")
+# print(player_turns)
 
-## TURN LOGIC
-# Roll the dice
-dice_roll = randint(1, 6)
-print(f"{dice_roll = }")
+# ## TURN LOGIC
+# # Roll the dice
+# dice_roll = randint(1, 6)
+# print(f"{dice_roll = }")
 
-# Display dice roll
-display_dice_result(screen, font, BACKGROUND, player_names[0], dice_roll)
+# # Display dice roll
+# display_dice_result(screen, font, BACKGROUND, player_names[0], dice_roll)
 
-pygame.quit()
+# pygame.quit()

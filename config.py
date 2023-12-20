@@ -16,8 +16,19 @@ GREEN = (101, 183, 65)
 YELLOW = (254, 232, 37)
 PINK = (252, 111, 163)
 BROWN = (190, 124, 67)
-GREY = (176, 166, 149)  # Change this!
+GREY = (176, 166, 149)
 
+# Points
+BROWN_POINT = 🟫
+BLUE_POINT = 🟦
+ORANGE_POINT = 🟧
+YELLOW_POINT = 🟨
+PINK_POINT = 🟪
+GREEN_POINT = 🟩
+
+THEMES = ["Spé", "SQL", "IA", "Shell", "Git", "Python"]
+
+# Mappings
 BOX_TYPE_TO_COLOR = {
     "*Spé": BROWN,
     "Spé": BROWN,
@@ -33,8 +44,6 @@ BOX_TYPE_TO_COLOR = {
     "Python": GREEN,
     "Again": GREY
 }
-
-THEMES = ["Spé", "SQL", "IA", "Shell", "Git", "Python"]
 
 # Box type mapping
 INDEX_TO_BOX_TYPE = {

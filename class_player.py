@@ -1,6 +1,6 @@
 import random
 from class_question import Question
-from utils import THEMES
+from config import THEMES
 import networkx as nx
 
 

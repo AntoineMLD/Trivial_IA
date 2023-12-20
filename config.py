@@ -118,5 +118,7 @@ TRANSLATE_THEMES = {
     "Spé": "Marché du travail",
     "IA": "Actualité IA",
     "Shell": "Commande Linux",
-    "Git": "Git_Github"   
+    "Git": "Git_Github",
+    "SQL": "SQL",
+    "Python": "Python"   
 }

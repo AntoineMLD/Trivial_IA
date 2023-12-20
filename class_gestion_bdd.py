@@ -1,6 +1,7 @@
 import sqlite3
 import random
 from class_question import Question
+from config import TRANSLATE_THEMES
 
 
 class GestionBDD:
@@ -11,6 +12,7 @@ class GestionBDD:
 
     def obtenir_question(self, theme):
         # Sélection d'une question aléatoire depuis la base de données
+        theme = TRANSLATE_THEMES[theme]
         self.curseur.execute("SELECT * FROM questions WHERE theme = ? ORDER BY RANDOM() LIMIT 1", (theme,))
         row = self.curseur.fetchone()
 

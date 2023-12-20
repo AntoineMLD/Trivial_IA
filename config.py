@@ -2,8 +2,10 @@
 WIDTH, HEIGHT = 600, 600
 BOARD_RADIUS = 250
 CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2
-BOX_RADIUS = 18
 
+BOX_RADIUS = 18
+RING_WIDTH = 4
+RING_COLOR = (255, 0, 0)
 
 # Palette and color mapping
 BACKGROUND = (29, 62, 71)
@@ -31,6 +33,8 @@ BOX_TYPE_TO_COLOR = {
     "Python": GREEN,
     "Again": GREY
 }
+
+THEMES = ["Spé", "SQL", "IA", "Shell", "Git", "Python"]
 
 # Box type mapping
 INDEX_TO_BOX_TYPE = {

@@ -6,6 +6,7 @@ CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2
 BOX_RADIUS = 18
 RING_WIDTH = 4
 RING_COLOR = (255, 0, 0)
+BORDER_THICKNESS = 2
 
 # Palette and color mapping
 BACKGROUND = (29, 62, 71)

@@ -1,4 +1,5 @@
 # Board's dimensions and coordinates
+SCREEN_WIDTH, SCREEN_HEIGHT = 1200, 600
 WIDTH, HEIGHT = 600, 600
 BOARD_RADIUS = 250
 CENTER_X, CENTER_Y = WIDTH // 2, HEIGHT // 2

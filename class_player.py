@@ -9,6 +9,11 @@ class Player:
         self.name = name
         self.score = {theme: False for theme in THEMES}
         self.position = 72
+    
+    def __repr__(self):
+        id_pos = f"Player {self.name} at position {self.position}\n"
+        state = f"Score: {', '}.join({self.score.values()})"
+        return id_pos + state
    
     def score_point(self, category: str):
         self.score[category] = True
@@ -31,4 +36,3 @@ class Player:
             if value == result:
                 path_possible.append(key)
         return path_possible
-                        

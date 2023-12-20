@@ -1,6 +1,7 @@
 from collections import deque
 from random import shuffle
 from typing import List
+from class_player import Player
 
 from board_network import create_game_network
 from board_coordinates import calculate_all_pos
@@ -16,6 +17,7 @@ def init_game(player_names: List[str]):
     - positions: List[Tuple[int, int]]
     - bdd: GestionBDD
     - players: deque d'instances de Joueur
+    - game_state : init
     """
     winner = None
 
@@ -30,7 +32,10 @@ def init_game(player_names: List[str]):
     players = [Player(name) for name in player_names]
     shuffle(players)
     players = deque(players)
+    
+    # Init game state to A 
+    game_state = "A"
 
-    return winner, network, positions, bdd, players
+    return winner, network, positions, bdd, players, game_state
 
 

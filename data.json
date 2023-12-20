@@ -708,7 +708,7 @@
       
 
     ],
-    "Ligne de commande Terminal Linux": [
+    "Commande Linux": [
       {
         "question": "Quelle commande est utilisée pour afficher le répertoire de travail actuel dans le terminal?",
         "Réponse A": "ls",
@@ -818,7 +818,7 @@
     
 
       
-    "Recherche d'emploi et recrutement": [
+    "Marché du travail": [
     {
       "question": "Quelles sont les étapes clés à suivre lors du processus de recrutement ?",
       "Réponse A": "La publication de l'offre d'emploi.",

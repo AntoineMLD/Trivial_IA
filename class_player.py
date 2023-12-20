@@ -7,10 +7,7 @@ class Player:
         self.name = name
         self.score = 0
         self.position = central_node
-        self.correct_answers_by_theme = {}  # Dictionnaire pour stocker le score par thème
-        
-
-        
+        self.correct_answers_by_theme = {}  # Dictionnaire pour stocker le score par thème 
          
     def lancer_de(self):
         result = random.randint(1, 6)
@@ -27,9 +24,6 @@ class Player:
                 path_possible.append(key)
         return path_possible
         
-    
-    
-    
     def poser_question(self, gestion_bdd):
         themes_disponibles = [
             "Recherche d'emploi et recrutement",
@@ -53,8 +47,6 @@ class Player:
             theme_selectionne = themes_disponibles[choix_theme - 1]
             question = gestion_bdd.obtenir_question(theme_selectionne)
         
-    
-
         if question:
             print(f"\nBienvenue, {self.name}!")
             question.afficher_question()

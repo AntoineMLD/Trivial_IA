@@ -39,3 +39,6 @@ def init_game(player_names: List[str]):
     return winner, network, positions, bdd, players, game_state
 
 
+def again_game_state():
+    # si sur une case "again" alors obtient le statut "A"
+    # 

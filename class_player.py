@@ -1,20 +1,26 @@
 import random
 from class_question import Question
 from board_network import *
-
+from utils import THEMES
 class Player:
     def __init__(self, name):
         self.name = name
-        self.score = 0
+        self.score = {theme: False for theme in THEMES}
         self.position = central_node
         self.correct_answers_by_theme = {}  # Dictionnaire pour stocker le score par thème
-        
 
+
+    def score_point(self, category: str):
+        self.score[category] = True
+    
+
+    def check_victory(self):
+            return sum(self.score.values()) == 6
         
-         
+    
     def lancer_de(self):
         result = random.randint(1, 6)
-    
+
     def give_new_positions(self):
         result = self.lancer_de()
         
@@ -26,10 +32,8 @@ class Player:
             if value == result:
                 path_possible.append(key)
         return path_possible
-        
-    
-    
-    
+            
+
     def poser_question(self, gestion_bdd):
         themes_disponibles = [
             "Recherche d'emploi et recrutement",

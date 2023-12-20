@@ -1,14 +1,14 @@
 import random
 from class_question import Question
-from board_network import *
-from utils import THEMES
+from config import THEMES
+import networkx as nx
 
 
 class Player:
     def __init__(self, name):
         self.name = name
         self.score = {theme: False for theme in THEMES}
-        self.position = central_node
+        self.position = 72
    
     def score_point(self, category: str):
         self.score[category] = True
@@ -23,7 +23,7 @@ class Player:
         return result 
 
 
-    def give_new_positions(self):
+    def give_new_positions(self, G):
         result = self.lancer_de()
         travel_possible = nx.shortest_path_length(G, self.position)
         path_possible = []

@@ -34,3 +34,4 @@ class GestionBDD:
 
     def fermer_connexion(self):
         self.connexion.close()
+        

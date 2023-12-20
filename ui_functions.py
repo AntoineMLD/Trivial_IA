@@ -6,7 +6,8 @@ import pygame
 
 from board_coordinates import calculate_all_pos
 from class_player import Player
-from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR, RING_COLOR, RING_WIDTH, WHITE
+from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR,\
+      RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE
 
 
 def initialize_display() -> Tuple[pygame.surface.Surface, pygame.font.Font]:
@@ -14,7 +15,7 @@ def initialize_display() -> Tuple[pygame.surface.Surface, pygame.font.Font]:
     Initialize screen and define global settings about font used.
     """
     pygame.init()
-    screen = pygame.display.set_mode((1200, 600))
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("TrivIA")
 
     # Filling the screen with background color

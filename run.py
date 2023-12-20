@@ -21,10 +21,10 @@ print("Done")
 
 
 winner, network, positions, bdd, players, game_state =game_functions.init_game()
-def get_active_player():
+def set_turn_order():
         players = deque(players)
         if game_state == "A":
-            return players[0]
+            return players
         else:
             players.rotate(-1)
             return players

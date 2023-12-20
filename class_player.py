@@ -36,4 +36,3 @@ class Player:
             if value == result:
                 path_possible.append(key)
         return path_possible
-

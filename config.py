@@ -20,12 +20,12 @@ BROWN = (190, 124, 67)
 GREY = (176, 166, 149)
 
 # Points
-BROWN_POINT = 🟫
-BLUE_POINT = 🟦
-ORANGE_POINT = 🟧
-YELLOW_POINT = 🟨
-PINK_POINT = 🟪
-GREEN_POINT = 🟩
+BROWN_POINT = "🟫"
+BLUE_POINT = "🟦"
+ORANGE_POINT = "🟧"
+YELLOW_POINT = "🟨"
+PINK_POINT = "🟪"
+GREEN_POINT = "🟩"
 
 THEMES = ["Spé", "SQL", "IA", "Shell", "Git", "Python"]
 

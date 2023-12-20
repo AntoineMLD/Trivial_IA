@@ -1,3 +1,4 @@
+from collections import deque
 from random import randint, shuffle
 from typing import Any, List, Tuple
 
@@ -5,13 +6,13 @@ import pygame
 
 from board_coordinates import calculate_all_pos
 from class_player import Player
-from config import BACKGROUND, BOX_RADIUS, BOX_TYPE_TO_COLOR, RING_COLOR, RING_WIDTH, WHITE
+from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR, RING_COLOR, RING_WIDTH, WHITE
 from utils import CircularList  # Consider using deque
 
 
-def initialize_display() -> Tuple[Any, Any, Any]:
+def initialize_display() -> Tuple[pygame.surface.Surface, pygame.font.Font]:
     """
-    Initialize screen and define global settings
+    Initialize screen and define global settings about font used.
     """
     pygame.init()
     screen = pygame.display.set_mode((1200, 600))
@@ -23,11 +24,10 @@ def initialize_display() -> Tuple[Any, Any, Any]:
     # Font settings
     font_family = 'Verdana'
     font_size = 16
-    font_color = WHITE  # White color
 
     font = pygame.font.SysFont(font_family, font_size)
 
-    return screen, font, font_color
+    return screen, font
 
 
 def get_player_names(screen, font) -> List[str]:
@@ -71,13 +71,13 @@ def get_player_names(screen, font) -> List[str]:
         pygame.draw.rect(screen, BACKGROUND, (600, 0, 600, 100))
         
         # Render and display instructions
-        instruction_surface = font.render(instructions, True, font_color)
+        instruction_surface = font.render(instructions, True, WHITE)
         screen.blit(instruction_surface, (610, 10))  # Slightly offset within the right zone
 
         # Render and display current input text
         txt_surface = font.render(text, True, (255, 255, 255))
         screen.blit(txt_surface, (input_box.x + 5, input_box.y + 5))
-        pygame.draw.rect(screen, (255, 255, 255), input_box, 2)  # Draw the input box
+        pygame.draw.rect(screen, (255, 255, 255), input_box, BORDER_THICKNESS)  # Draw the input box
 
         pygame.display.flip()
 
@@ -95,19 +95,15 @@ def display_board(screen, network, positions: List[Tuple[int, int]]) -> None:
 
 # TODO: THIS IS A TOY VERSION
 # Especially, this needs as input the deque of players
-def display_scores(screen, font, background_color, scores):
+def display_scores(screen, font, players: deque(Player, ..., Player)) -> None:
     # Define the area for displaying scores
     score_area = pygame.Rect(600, 100, 600, 240)  # Below the top zone
 
     # Clear the score area
-    pygame.draw.rect(screen, background_color, score_area)
-
-    # Define the border color and thickness
-    border_color = (255, 255, 255)  # White
-    border_thickness = 2  # Thickness of the border
+    pygame.draw.rect(screen, BACKGROUND, score_area)
 
     # Draw the border around the score area
-    pygame.draw.rect(screen, border_color, score_area, border_thickness)
+    pygame.draw.rect(screen, WHITE, score_area, BORDER_THICKNESS)
 
     # Starting Y position for the first line of text
     start_y = 110
@@ -115,7 +111,7 @@ def display_scores(screen, font, background_color, scores):
     # Display each player's score
     for player_name, score in scores.items():
         score_text = f"{player_name}: {score}"
-        text_surface = font.render(score_text, True, border_color)  # Use the border color for text
+        text_surface = font.render(score_text, True, WHITE)  # Use the border color for text
         screen.blit(text_surface, (610, start_y))
         start_y += 30  # Increment Y position for next line
 
@@ -195,10 +191,9 @@ def display_question_and_handle_answer(screen, font, background_color, question,
 
 
 # Initialize PyGame
-screen, font, font_color = initialize_display()
+screen, font = initialize_display()
 print(type(screen))
 print(type(font))
-print(type(font_color))
 
 ## INITIALIZE THE GAME
 # Get player names
@@ -207,7 +202,7 @@ print("Player Names:", player_names)
 
 # Initialize turn_order
 shuffle(player_names)
-player_turns = CircularList(player_names)
+player_turns = deque(player_names)
 print("TURN ORDER")
 print(player_turns)
 

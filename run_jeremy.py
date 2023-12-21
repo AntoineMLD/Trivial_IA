@@ -1,4 +1,4 @@
-from ui_functions import initialize_display, get_player_names, display_board
+from ui_functions import initialize_display, get_player_names, display_board, display_question_and_handle_answer, display_scores
 from game_functions import init_game, check_current_case
 import pygame, sys
 from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR, HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH, RED, INDEX_TO_BOX_TYPE
@@ -14,6 +14,7 @@ G = create_game_network()
 screen, board_zone, info_zone, score_zone, question_zone, font = initialize_display()
 
 input_box = pygame.Rect(600, 50, 200, 32)
+answer_box = pygame.Rect(600, 420, 80, 80 )
 dice_box = pygame.Rect(900, 10, 50, 50)  # Positioned in the right zone
 max_players = 1
 active = False
@@ -44,6 +45,7 @@ while True:
                 print(available_cases)
                 for i in available_cases:
                     pygame.draw.circle(screen, RED, (positions[i][0], positions[i][1]), BOX_RADIUS+ 3, 3)
+            
             # When player click on the case choosen
             else:
                 for idx, pos in enumerate(positions):
@@ -58,15 +60,7 @@ while True:
                                 player.position = positions_chosen[-1]
                                 print(f"Position du {player.name} : {player.position}")
                                 
-                                
-                                theme, scoring = check_current_case(player)
-                                if theme != "Again":
-                                    question = BDD.obtenir_question(theme)
-                                else:
-                                    break
-                                
-                                    
-                            
+                               
                             
                             # Effacer tout le plateau
                             screen.fill(BACKGROUND)
@@ -82,6 +76,18 @@ while True:
                             # Mettre à jour l'écran
                             pygame.display.flip()
                             
+                            theme, scoring = check_current_case(player)
+                            if theme != "Again":
+                                question = BDD.obtenir_question(theme)
+                                display_question_and_handle_answer(screen, font, question)
+                                 
+                                if answer_box.collidepoint(event.pos):
+                                    active = True                           
+                                    if event.type == pygame.KEYDOWN:
+                                        if event.key in [pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4]:
+                                            selected_answer = question.options[int(event.unicode)-1]
+                                            print(selected_answer)
+                                        
                             # print du theme
                             print("Thème choisi :", theme)
                             print("scoring :", scoring)
@@ -124,6 +130,7 @@ while True:
             # Get the color from the network nodes
             box_color = BOX_TYPE_TO_COLOR[network.nodes[idx]['box_type']]
             pygame.draw.circle(screen, box_color, pos, BOX_RADIUS)
+            display_scores(screen, font, player)
             
 
         
@@ -142,9 +149,18 @@ while True:
     txt_surface = font.render(text, True, (255, 255, 255))
     screen.blit(txt_surface, (input_box.x + 5, input_box.y + 5))
     pygame.draw.rect(screen, (255, 255, 255), input_box, BORDER_THICKNESS)  # Draw the input box
+    
+    
+    answer_surface = font.render(text, True, (255, 255, 255))
+    screen.blit(answer_surface, (answer_box.x + 5, answer_box.y + 5))
+    pygame.draw.rect(screen, (255, 255, 255), answer_box, BORDER_THICKNESS)  # Draw the input box
+    
+    
 
     dice_display = font.render(dice_result, True, WHITE)
     screen.blit(dice_display, (920, 25))
     pygame.draw.rect(screen, (255, 255, 255), dice_box, BORDER_THICKNESS)
+    
+    
 
     pygame.display.flip()

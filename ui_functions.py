@@ -5,7 +5,7 @@ import pygame
 import networkx as nx
 from class_player import Player
 from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR,\
-      HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH
+      HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH, THEME_TO_POINT
 from utils import auto_wrap
 
 
@@ -31,7 +31,7 @@ def initialize_display():
     
     # Font settings
     font_family = 'Verdana'
-    font_size = 16
+    font_size = 20
 
     font = pygame.font.SysFont(font_family, font_size)
 
@@ -101,9 +101,9 @@ def display_board(screen, network, positions: List[Tuple[int, int]]) -> None:
         pygame.draw.circle(screen, box_color, pos, BOX_RADIUS)
 
 
-def display_scores(screen, font, scores):
+def display_scores(screen, font, player):
     # Define the area for displaying scores
-    score_area = pygame.Rect(600, 100, 600, 240)  # Below the top zone
+    score_area = pygame.Rect(600, 500, 600, 100)  # Below the top zone
 
     # Clear the score area
     pygame.draw.rect(screen, BACKGROUND, score_area)
@@ -112,18 +112,18 @@ def display_scores(screen, font, scores):
     pygame.draw.rect(screen, WHITE, score_area, BORDER_THICKNESS)
 
     # Starting Y position for the first line of text
-    start_y = 110
+    start_y = 550
 
     # Display each player's score
-    for player in players:
-        display_name = f"{player.name}: "
-        scores_list = [THEME_TO_POINT[theme] if is_scored else " "
-                        for theme, is_scored in player.score.items()]
-        display_score = ", ".join(scores_list)
-        display = display_name + display_score
-        text_surface = font.render(display, True, WHITE)
-        screen.blit(text_surface, (610, start_y))
-        start_y += 30
+    #for player in players:
+    display_name = f"{player.name}: "
+    scores_list = [THEME_TO_POINT[theme] if is_scored else " "
+                    for theme, is_scored in player.score.items()]
+    display_score = ", ".join(scores_list)
+    display = display_name + display_score
+    text_surface = font.render(display, True, WHITE)
+    screen.blit(text_surface, (610, start_y))
+    start_y += 30
 
     pygame.display.update(score_area)
 
@@ -162,8 +162,8 @@ def display_new_positions(screen, indexes: List[int], positions: List[Tuple[int,
 # ADD auto_wrap to utils.py and add import
 def display_question_and_handle_answer(screen, font, question):
     # Define the areas for question and answers [ENLARGE]
-    question_area = pygame.Rect(600, 350, 600, 100)  # Top part of the bottom zone
-    answer_area = pygame.Rect(600, 450, 600, 160)   # Bottom part of the bottom zone
+    question_area = pygame.Rect(600, 150, 600, 100)  # Top part of the bottom zone
+    answer_area = pygame.Rect(600, 250, 600, 160) # Bottom part of the bottom zone
 
     # Clear the areas
     pygame.draw.rect(screen, BACKGROUND, question_area)
@@ -177,28 +177,22 @@ def display_question_and_handle_answer(screen, font, question):
         screen.blit(row_text, (610, start_y))
         start_y += font.get_linesize()
 
-    start_y += 30  # This should be tested too
+    start_y = 250  # This should be tested too
 
     answer_options = question.options
     for idx, option in enumerate(answer_options, 1):
         answer_text = f"{idx}. {option}"
         answer_text_wrapped = auto_wrap(answer_text, 60)
         for row in answer_text_wrapped:
-            text_surface = font.render(answer_text, True, WHITE)
+            text_surface = font.render(row, True, WHITE)
             screen.blit(text_surface, (610, start_y))
             start_y += font.get_linesize()
 
     pygame.display.update([question_area, answer_area])
     
-    # Handle answer input
-    selected_answer = None
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key in [pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4]:
-                    # Map the key press to the corresponding answer
-                    selected_answer = answer_options[int(event.unicode) - 1]
-                    return selected_answer
+
+ 
+           
 
 
 

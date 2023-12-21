@@ -16,7 +16,7 @@ def init_game(player_names: List[str]):
     - positions: List[Tuple[int, int]]
     - bdd: GestionBDD
     - players: deque d'instances de Joueur
-    
+    - game_state : init
     """
     winner = None
 
@@ -31,9 +31,16 @@ def init_game(player_names: List[str]):
     players = [Player(name) for name in player_names]
     shuffle(players)
     players = deque(players)
-        
-    return (winner, network, positions, bdd, players)
+    
+    # Init game state to A 
+    game_state = "A"
 
+    return winner, network, positions, bdd, players, game_state
+
+
+def again_game_state():
+    # si sur une case "again" alors obtient le statut "A"
+    pass
 
 def check_current_case(player: Player) -> Tuple[str, bool]:
     """
@@ -53,27 +60,3 @@ def check_current_case(player: Player) -> Tuple[str, bool]:
         box = box[1:]
     
     return box, scoring
-
-
-def update_game_after_question(player, theme, correct_answer, scoring) -> str:
-    """
-    Sets what will be done after answer in questions
-    """
-    if correct_answer and scoring:
-        player.score_point(theme)
-        player_wins = player.check_victory()
-        if player_wins:
-            return "Victory"
-        return "Again"
-    elif correct_answer:  # and not scoring
-        return "Again"
-    else:  # Player didn't correctly answer
-        return "Next"
-
-# def set_turn_order():
-#         players = deque(players)
-#         if game_state == "A":
-#             return players
-#         else:
-#             players.rotate(-1)
-#             return players

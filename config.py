@@ -29,9 +29,19 @@ YELLOW_POINT = "🟨"
 PINK_POINT = "🟪"
 GREEN_POINT = "🟩"
 
+
 THEMES = ["Spé", "SQL", "IA", "Shell", "Git", "Python"]
 
 # Mappings
+THEME_TO_POINT = {
+    "Spé": BROWN_POINT,
+    "SQL": BLUE_POINT,
+    "IA": ORANGE_POINT,
+    "Shell": YELLOW_POINT,
+    "Git": PINK_POINT,
+    "Python": GREEN_POINT
+}
+
 BOX_TYPE_TO_COLOR = {
     "*Spé": BROWN,
     "Spé": BROWN,

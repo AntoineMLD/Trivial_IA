@@ -19,6 +19,7 @@ YELLOW = (254, 232, 37)
 PINK = (252, 111, 163)
 BROWN = (190, 124, 67)
 GREY = (176, 166, 149)
+RED = (255, 0, 0)
 
 # Points
 BROWN_POINT = "🟫"
@@ -129,5 +130,7 @@ TRANSLATE_THEMES = {
     "Spé": "Marché du travail",
     "IA": "Actualité IA",
     "Shell": "Commande Linux",
-    "Git": "Git_Github"   
+    "Git": "Git_Github",
+    "SQL": "SQL",
+    "Python": "Python"   
 }

@@ -20,7 +20,7 @@ class Player:
     
 
     def check_victory(self):
-            return sum(self.score.values()) == 6
+        return sum(self.score.values()) == 6
         
     
     def lancer_de(self):
@@ -28,12 +28,7 @@ class Player:
         return result 
 
 
-    def give_new_positions(self, G):
-        result = self.lancer_de()
-        travel_possible = nx.shortest_path_length(G, self.position)
-        path_possible = []
-        for key,value in travel_possible.items():
-            if value == result:
-                path_possible.append(key)
+    def give_new_positions(self, G, dice_result):
+        travel_possible = nx.single_source_shortest_path_length(G,self.position, cutoff=dice_result)
+        path_possible = [node for node, distance in travel_possible.items() if distance == dice_result]
         return path_possible
-

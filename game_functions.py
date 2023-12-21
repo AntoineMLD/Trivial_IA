@@ -1,13 +1,12 @@
 from collections import deque
 from random import shuffle
-from typing import List
+from typing import List, Tuple
 from class_player import Player
-
 from board_network import create_game_network
 from board_coordinates import calculate_all_pos
 from class_player import Player
 from class_gestion_bdd import GestionBDD
-
+from config import INDEX_TO_BOX_TYPE
 
 def init_game(player_names: List[str]):
     """
@@ -42,3 +41,23 @@ def init_game(player_names: List[str]):
 def again_game_state():
     # si sur une case "again" alors obtient le statut "A"
     pass
+
+def check_current_case(player: Player) -> Tuple[str, bool]:
+    """
+    returns a tuple with:
+    - next action,
+    - scoring or not
+    - theme
+    """
+    scoring = False
+    box = INDEX_TO_BOX_TYPE[player.position]
+ 
+    if box == "Again":
+        return box, scoring
+
+    if box.startswith("*"):
+        scoring = True
+        box = box[1:]
+    
+    return box, scoring
+

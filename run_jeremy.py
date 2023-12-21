@@ -1,9 +1,10 @@
 from ui_functions import initialize_display, get_player_names, display_board
-from game_functions import init_game
+from game_functions import init_game, check_current_case
 import pygame, sys
-from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR, HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH, RED
+from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR, HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH, RED, INDEX_TO_BOX_TYPE
 from class_player import Player
 from board_network import create_game_network
+from  class_gestion_bdd import GestionBDD
 
 # Initialize PyGame and set it
 pygame.init()
@@ -23,6 +24,7 @@ start_game = False
 dice_result = '6'
 available_cases = []
 positions_chosen = []
+BDD = GestionBDD('questions.db')
 
 while True:
     
@@ -55,7 +57,18 @@ while True:
                                 print("Positions choisies :", positions_chosen)
                                 player.position = positions_chosen[-1]
                                 print(f"Position du {player.name} : {player.position}")
-                                 # Effacer tout le plateau
+                                
+                                
+                                theme, scoring = check_current_case(player)
+                                if theme != "Again":
+                                    question = BDD.obtenir_question(theme)
+                                else:
+                                    break
+                                
+                                    
+                            
+                            
+                            # Effacer tout le plateau
                             screen.fill(BACKGROUND)
 
                             # Redessiner chaque case avec sa couleur d'origine
@@ -68,6 +81,18 @@ while True:
 
                             # Mettre à jour l'écran
                             pygame.display.flip()
+                            
+                            # print du theme
+                            print("Thème choisi :", theme)
+                            print("scoring :", scoring)
+                            attrs = question.__dict__
+
+                            for k, v in attrs.items():
+                                print(k, ":", v)
+                            
+                            
+                            
+                            
                               
                         
             

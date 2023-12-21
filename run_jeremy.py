@@ -22,6 +22,7 @@ instructions = "Enter your name"
 start_game = False
 dice_result = '6'
 available_cases = []
+positions_chosen = []
 
 while True:
     
@@ -34,12 +35,42 @@ while True:
             # If the user clicked on the input_box rect.
             if input_box.collidepoint(event.pos):
                 active = True
+            # When player click on the dice
             elif dice_box.collidepoint(event.pos):
                 dice_result = str(player.lancer_de())
                 available_cases = player.give_new_positions(G, int(dice_result))
                 print(available_cases)
                 for i in available_cases:
                     pygame.draw.circle(screen, RED, (positions[i][0], positions[i][1]), BOX_RADIUS+ 3, 3)
+            # When player click on the case choosen
+            else:
+                for idx, pos in enumerate(positions):
+                    # Vérifier si le clic est à l'intérieur du cercle entouré en rouge
+                    if pygame.mouse.get_pos()[0] >= pos[0] - BOX_RADIUS - 3 and pygame.mouse.get_pos()[0] <= pos[0] + BOX_RADIUS + 3:
+                        if pygame.mouse.get_pos()[1] >= pos[1] - BOX_RADIUS - 3 and pygame.mouse.get_pos()[1] <= pos[1] + BOX_RADIUS + 3:
+                            if idx in available_cases:
+                                positions_chosen.append(idx)
+                                print(f"Position du {player.name} : {player.position}")
+                                print("Case choisie", idx)
+                                print("Positions choisies :", positions_chosen)
+                                player.position = positions_chosen[-1]
+                                print(f"Position du {player.name} : {player.position}")
+                                 # Effacer tout le plateau
+                            screen.fill(BACKGROUND)
+
+                            # Redessiner chaque case avec sa couleur d'origine
+                            for idx, pos in enumerate(positions):
+                                box_color = BOX_TYPE_TO_COLOR[network.nodes[idx]['box_type']]
+                                pygame.draw.circle(screen, box_color, pos, BOX_RADIUS)
+
+                            # Dessiner le cercle du joueur dans sa nouvelle position
+                            pygame.draw.circle(screen, RING_COLOR, positions[player.position], BOX_RADIUS + RING_WIDTH, RING_WIDTH)
+
+                            # Mettre à jour l'écran
+                            pygame.display.flip()
+                              
+                        
+            
 
 
 
@@ -68,6 +99,7 @@ while True:
             # Get the color from the network nodes
             box_color = BOX_TYPE_TO_COLOR[network.nodes[idx]['box_type']]
             pygame.draw.circle(screen, box_color, pos, BOX_RADIUS)
+            
 
         
 

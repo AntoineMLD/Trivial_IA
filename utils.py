@@ -37,3 +37,20 @@ class CircularList:
             raise IndexError("List is empty")
         item = self.data[self.index]
         self.index = (self.index + 1) % len(self.data)
+
+    def auto_wrap(text: str, nb_characters: int) -> str:
+        """Allows newlines"""
+        words = text.split(' ')
+        wrapped_lines = []
+
+        for word in words:
+            if len(wrapped_lines) == 0:
+                wrapped_lines.append('')
+            test_line = wrapped_lines[-1] + word + ' '
+
+            if len(test_line) < nb_characters:
+                wrapped_lines[-1] = test_line
+            else:
+                wrapped_lines.append(word + ' ')
+
+        return wrapped_lines

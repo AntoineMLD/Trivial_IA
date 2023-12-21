@@ -26,8 +26,8 @@ def initialize_display():
     # Define main zones used
     board_zone = pygame.Rect(0, 0, WIDTH, HEIGHT)
     info_zone = pygame.Rect(WIDTH, 0, WIDTH, 100)
-    score_zone = pygame.Rect(WIDTH, 100, WIDTH, 240)
-    question_zone = pygame.Rect(WIDTH, 340, WIDTH, 260)
+    score_zone = pygame.Rect(WIDTH, 100, WIDTH, 50)
+    question_zone = pygame.Rect(WIDTH, 340, WIDTH, 450)
     
     # Font settings
     font_family = 'Verdana'

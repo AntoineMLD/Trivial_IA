@@ -1,8 +1,7 @@
 from ui_functions import initialize_display, get_player_names, display_board
 from game_functions import init_game
 import pygame, sys
-from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR,\
-      HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH
+from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR, HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH, RED
 from class_player import Player
 from board_network import create_game_network
 
@@ -39,6 +38,8 @@ while True:
                 dice_result = str(player.lancer_de())
                 available_cases = player.give_new_positions(G, int(dice_result))
                 print(available_cases)
+                for i in available_cases:
+                    pygame.draw.circle(screen, RED, (positions[i][0], positions[i][1]), BOX_RADIUS+ 3, 3)
 
 
 
@@ -62,6 +63,7 @@ while True:
                 winner, network, positions, bdd, players, game_state = init_game(player_names)
                 
     if start_game : 
+        # drawing board
         for idx, pos in enumerate(positions):
             # Get the color from the network nodes
             box_color = BOX_TYPE_TO_COLOR[network.nodes[idx]['box_type']]

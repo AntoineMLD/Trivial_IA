@@ -1,9 +1,8 @@
 from collections import deque
 from random import randint, shuffle
 from typing import Any, List, Tuple
-
 import pygame
-
+import networkx as nx
 from class_player import Player
 from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR,\
       HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH
@@ -155,10 +154,11 @@ def display_new_positions(screen, indexes: List[int], positions: List[Tuple[int,
     
 
 # TODO CHOOSE NEW POSITION
-    
+
 
 # TODO DISPLAY_NEW_POSITION
 
+# fonction pour dessiner un cercle avec un contour rouge
 
 
 

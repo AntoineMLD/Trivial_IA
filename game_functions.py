@@ -1,15 +1,12 @@
 from collections import deque
 from random import shuffle
-from typing import List
+from typing import List, Tuple
 from class_player import Player
-from board import BOARD
-from config import INDEX_TO_BOX_TYPE
 from board_network import create_game_network
 from board_coordinates import calculate_all_pos
 from class_player import Player
 from class_gestion_bdd import GestionBDD
-from typing import Tuple
-
+from config import INDEX_TO_BOX_TYPE
 
 def init_game(player_names: List[str]):
     """

@@ -9,14 +9,14 @@ from ui_functions import initialize_display, get_player_names
 # Initialize PyGame and set it
 pygame.init()
 
-screen, font = initialize_display()
+screen, board_zone, info_zone, score_zone, question_zone, font = initialize_display()
 
 # Get players' names
 player_names = get_player_names(screen, font)
 print("Player Names:", player_names)
 
 # Initialize game components
-winner, network, positions, bdd, players = init_game(player_names)
+winner, network, positions, bdd, players, game_state = init_game(player_names)
 
 # Draw board
 display_board(screen, network, positions)
@@ -30,7 +30,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     
-    # display_board(screen, network, positions)
+    display_board(screen, network, positions)
 
     # pygame.display.flip()
     print("Done")

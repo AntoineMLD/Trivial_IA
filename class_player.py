@@ -20,7 +20,7 @@ class Player:
     
 
     def check_victory(self):
-            return sum(self.score.values()) == 6
+        return sum(self.score.values()) == 6
         
     
     def lancer_de(self):

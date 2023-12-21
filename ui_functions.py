@@ -25,8 +25,8 @@ def initialize_display():
     # Define main zones used
     board_zone = pygame.Rect(0, 0, WIDTH, HEIGHT)
     info_zone = pygame.Rect(WIDTH, 0, WIDTH, 100)
-    score_zone = pygame.Rect(WIDTH, 100, WIDTH, 240)
-    question_zone = pygame.Rect(WIDTH, 340, WIDTH, 260)
+    score_zone = pygame.Rect(WIDTH, 100, WIDTH, 50)
+    question_zone = pygame.Rect(WIDTH, 340, WIDTH, 450)
     
     # Font settings
     font_family = 'Verdana'
@@ -100,9 +100,7 @@ def display_board(screen, network, positions: List[Tuple[int, int]]) -> None:
         pygame.draw.circle(screen, box_color, pos, BOX_RADIUS)
 
 
-# TODO: THIS IS A TOY VERSION
-# Especially, this needs as input the deque of players
-def display_scores(screen, font, players) -> None:
+def display_scores(screen, font, scores):
     # Define the area for displaying scores
     score_area = pygame.Rect(600, 100, 600, 240)  # Below the top zone
 
@@ -117,15 +115,15 @@ def display_scores(screen, font, players) -> None:
 
     # Display each player's score
     for player in players:
-        score_text = f"{player.name}: Spé: "
-
-    for player_name, score in scores.items():
-        score_text = f"{player_name}: {score}"
-        text_surface = font.render(score_text, True, WHITE)  # Use the border color for text
+        display_name = f"{player.name}: "
+        scores_list = [THEME_TO_POINT[theme] if is_scored else " "
+                        for theme, is_scored in player.score.items()]
+        display_score = ", ".join(scores_list)
+        display = display_name + display_score
+        text_surface = font.render(display, True, WHITE)
         screen.blit(text_surface, (610, start_y))
-        start_y += 30  # Increment Y position for next line
+        start_y += 30
 
-    # Update the display for the score area
     pygame.display.update(score_area)
 
 
@@ -153,42 +151,44 @@ def display_new_positions(screen, indexes: List[int], positions: List[Tuple[int,
         pygame.draw.circle(screen, RING_COLOR, pos, BOX_RADIUS, RING_WIDTH)
     
 
-# TODO CHOOSE NEW POSITION
+
 
 
 # TODO DISPLAY_NEW_POSITION
-
-# fonction pour dessiner un cercle avec un contour rouge
-
+# Raw implemented by Antoine in run_jeremy
 
 
-
-
-
-
-def display_question_and_handle_answer(screen, font, background_color, question, answer_options):
-    # Define the areas for question and answers
+# ADD auto_wrap to utils.py and add import
+def display_question_and_handle_answer(screen, font, question):
+    # Define the areas for question and answers [ENLARGE]
     question_area = pygame.Rect(600, 350, 600, 100)  # Top part of the bottom zone
     answer_area = pygame.Rect(600, 450, 600, 160)   # Bottom part of the bottom zone
 
     # Clear the areas
-    pygame.draw.rect(screen, background_color, question_area)
-    pygame.draw.rect(screen, background_color, answer_area)
+    pygame.draw.rect(screen, BACKGROUND, question_area)
+    pygame.draw.rect(screen, BACKGROUND, answer_area) 
 
     # Display the question
-    question_text = font.render(question, True, (255, 255, 255))  # White text
-    screen.blit(question_text, (610, 360))  # Position the text in the question area
+    start_y = 150
+    question_wrapped = auto_wrap(question.question, 60)  # This value should be tested
+    for row in question_wrapped:
+        row_text = font.render(row, True, WHITE)
+        screen.blit(row_text, (610, start_y))
+        start_y += font.get_linesize()
 
-    # Display the answer options
-    start_y = 460
-    for i, option in enumerate(answer_options, 1):
-        answer_text = f"{i}. {option}"
-        text_surface = font.render(answer_text, True, (255, 255, 255))  # White text
-        screen.blit(text_surface, (610, start_y))
-        start_y += 40  # Increment for next option
+    start_y += 30  # This should be tested too
 
-    pygame.display.update([question_area, answer_area])  # Update both areas
+    answer_options = question.options
+    for idx, option in enumerate(answer_options, 1):
+        answer_text = f"{idx}. {option}"
+        answer_text_wrapped = auto_wrap(answer_text, 60)
+        for row in answer_text_wrapped:
+            text_surface = font.render(answer_text, True, WHITE)
+            screen.blit(text_surface, (610, start_y))
+            start_y += font.get_linesize()
 
+    pygame.display.update([question_area, answer_area])
+    
     # Handle answer input
     selected_answer = None
     while True:

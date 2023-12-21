@@ -6,6 +6,7 @@ import networkx as nx
 from class_player import Player
 from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR,\
       HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH
+from utils import auto_wrap
 
 
 def initialize_display():

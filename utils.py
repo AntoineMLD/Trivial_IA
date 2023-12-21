@@ -38,7 +38,8 @@ class CircularList:
         item = self.data[self.index]
         self.index = (self.index + 1) % len(self.data)
 
-    def auto_wrap(text: str, nb_characters: int) -> str:
+
+def auto_wrap(text: str, nb_characters: int) -> str:
         """Allows newlines"""
         words = text.split(' ')
         wrapped_lines = []

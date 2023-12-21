@@ -6,19 +6,28 @@ import pygame
 
 from class_player import Player
 from config import BACKGROUND, BORDER_THICKNESS, BOX_RADIUS, BOX_TYPE_TO_COLOR,\
-      RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE
+      HEIGHT, RING_COLOR, RING_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, WIDTH
 
 
-def initialize_display() -> Tuple[pygame.surface.Surface, pygame.font.Font]:
+def initialize_display():
     """
-    Initialize screen and define global settings about font used.
+    - Initialize and display main screen
+    - Define main zones used
+    - Define global settings about font used
     """
+    # Initialize and display main screen
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("TrivIA")
 
     # Filling the screen with background color
     screen.fill(BACKGROUND)
+
+    # Define main zones used
+    board_zone = pygame.Rect(0, 0, WIDTH, HEIGHT)
+    info_zone = pygame.Rect(WIDTH, 0, WIDTH, 100)
+    score_zone = pygame.Rect(WIDTH, 100, WIDTH, 240)
+    question_zone = pygame.Rect(WIDTH, 340, WIDTH, 260)
     
     # Font settings
     font_family = 'Verdana'
@@ -26,7 +35,7 @@ def initialize_display() -> Tuple[pygame.surface.Surface, pygame.font.Font]:
 
     font = pygame.font.SysFont(font_family, font_size)
 
-    return screen, font
+    return screen, board_zone, info_zone, score_zone, question_zone, font
 
 
 def get_player_names(screen, font) -> List[str]:
@@ -108,6 +117,9 @@ def display_scores(screen, font, players) -> None:
     start_y = 110
 
     # Display each player's score
+    for player in players:
+        score_text = f"{player.name}: Spé: "
+
     for player_name, score in scores.items():
         score_text = f"{player_name}: {score}"
         text_surface = font.render(score_text, True, WHITE)  # Use the border color for text

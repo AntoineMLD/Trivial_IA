@@ -35,9 +35,10 @@ def init_game(player_names: List[str]):
     shuffle(players)
     players = deque(players)
         
-    return( winner, network, positions, bdd, players)
+    return (winner, network, positions, bdd, players)
 
-def update_game_after_dice(player: Player) -> Tuple[str, bool]:
+
+def check_current_case(player: Player) -> Tuple[str, bool]:
     """
     returns a tuple with:
     - next action,
@@ -55,3 +56,27 @@ def update_game_after_dice(player: Player) -> Tuple[str, bool]:
         box = box[1:]
     
     return box, scoring
+
+
+def update_game_after_question(player, theme, correct_answer, scoring) -> str:
+    """
+    Sets what will be done after answer in questions
+    """
+    if correct_answer and scoring:
+        player.score_point(theme)
+        player_wins = player.check_victory()
+        if player_wins:
+            return "Victory"
+        return "Again"
+    elif correct_answer:  # and not scoring
+        return "Again"
+    else:  # Player didn't correctly answer
+        return "Next"
+
+# def set_turn_order():
+#         players = deque(players)
+#         if game_state == "A":
+#             return players
+#         else:
+#             players.rotate(-1)
+#             return players

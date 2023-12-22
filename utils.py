@@ -55,3 +55,7 @@ def auto_wrap(text: str, nb_characters: int) -> str:
                 wrapped_lines.append(word + ' ')
 
         return wrapped_lines
+    
+    
+    
+    

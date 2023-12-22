@@ -30,8 +30,8 @@ def initialize_display():
     question_zone = pygame.Rect(WIDTH, 340, WIDTH, 450)
     
     # Font settings
-    font_family = 'Arial Unicode MS'
-    font_size = 30
+    font_family = 'Verdana'
+    font_size = 20
 
     font = pygame.font.SysFont(font_family, font_size)
 
@@ -170,7 +170,7 @@ def display_new_positions(screen, indexes: List[int], positions: List[Tuple[int,
 def display_question_and_handle_answer(screen, font, question, display_question=True, display_winning_text=False):
     # Define the areas for question and answers [ENLARGE]
     question_area = pygame.Rect(600, 150, 600, 100)  # Top part of the bottom zone
-    answer_area = pygame.Rect(600, 250, 600, 160)  # Bottom part of the bottom zone
+    answer_area = pygame.Rect(600, 200, 600, 160)  # Bottom part of the bottom zone
     
     # Clear the areas
     pygame.draw.rect(screen, BACKGROUND, question_area)
@@ -179,13 +179,13 @@ def display_question_and_handle_answer(screen, font, question, display_question=
     if display_question and not display_winning_text and question:  # Display the question if requested and it exists
         # Display the question
         start_y = 150
-        question_wrapped = auto_wrap(question.question, 60)  # This value should be tested
+        question_wrapped = auto_wrap(question.question, 65)  # This value should be tested
         for row in question_wrapped:
             row_text = font.render(row, True, WHITE)
             screen.blit(row_text, (610, start_y))
             start_y += font.get_linesize()
 
-        start_y = 250  # This should be tested too
+        start_y = 200  # This should be tested too
 
         answer_options = question.options
         for idx, option in enumerate(answer_options, 1):

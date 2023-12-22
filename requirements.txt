@@ -1,2 +1,2 @@
-pygame
-networkx
+pygame==2.5.2
+networkx==3.2.1

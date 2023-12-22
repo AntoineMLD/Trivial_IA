@@ -64,6 +64,8 @@ La partie s'achève quand un joueur remporte un camembert pour chaque thème. Il
 - Pour **lancer le dé**, un bouton dé apparaît dans le panneau de droite, en haut. Un clic sur celui-ci déclenche le lancer ainsi que l'affichage du résultat obtenu sur ce bouton.
 - En fonction de ce résultat, les positions de déplacement possibles pour le joueur apparaissent sur le board à gauche, sous forme d'anneau rouge autour des cases atteignables.
 
+**lien du canva de présentation :**
+https://www.canva.com/design/DAF3mLYLNy4/816Tqt4utMTnmeozwoY51w/edit?utm_content=DAF3mLYLNy4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 # Releases
 ## Version 1.0
 Le jeu est encore en mode monojoueur

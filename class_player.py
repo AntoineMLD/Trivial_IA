@@ -1,6 +1,6 @@
 import random
 from class_question import Question
-from config import THEMES
+from config import THEMES, INDEX_TO_BOX_TYPE
 import networkx as nx
 
 
@@ -16,7 +16,9 @@ class Player:
         return id_pos + state
    
     def score_point(self, category: str):
-        self.score[category] = True
+        box_type = INDEX_TO_BOX_TYPE[self.position]
+        if box_type.startswith('*'):
+            self.score[category] = True
     
 
     def check_victory(self):
@@ -32,3 +34,5 @@ class Player:
         travel_possible = nx.single_source_shortest_path_length(G,self.position, cutoff=dice_result)
         path_possible = [node for node, distance in travel_possible.items() if distance == dice_result]
         return path_possible
+
+    

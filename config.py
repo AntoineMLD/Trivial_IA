@@ -1,3 +1,5 @@
+import pygame
+
 # Board's dimensions and coordinates
 SCREEN_WIDTH, SCREEN_HEIGHT = 1200, 600
 WIDTH, HEIGHT = 600, 600
@@ -22,24 +24,26 @@ GREY = (176, 166, 149)
 RED = (255, 0, 0)
 
 # Points
-BROWN_POINT = "🟫"
-BLUE_POINT = "🟦"
-ORANGE_POINT = "🟧"
-YELLOW_POINT = "🟨"
-PINK_POINT = "🟪"
-GREEN_POINT = "🟩"
+BROWN_POINT = pygame.image.load('emojis/brown.png')
+BLUE_POINT = pygame.image.load('emojis/blue.png')
+ORANGE_POINT = pygame.image.load('emojis/orange.png')
+YELLOW_POINT = pygame.image.load('emojis/yellow.png')
+PINK_POINT = pygame.image.load('emojis/pink.png')
+GREEN_POINT = pygame.image.load('emojis/green.png')
 
 
-THEMES = ["Spé", "SQL", "IA", "Shell", "Git", "Python"]
+
+THEMES = ["Marché du travail", "SQL", "IA", "Commande Linux", "Git_Github", "Python"]
 
 # Mappings
 THEME_TO_POINT = {
-    "Spé": BROWN_POINT,
+    "Marché du travail": BROWN_POINT,
     "SQL": BLUE_POINT,
-    "IA": ORANGE_POINT,
-    "Shell": YELLOW_POINT,
-    "Git": PINK_POINT,
-    "Python": GREEN_POINT
+    "Actualité IA": ORANGE_POINT,
+    "Commande Linux": YELLOW_POINT,
+    "Git_Github": PINK_POINT,
+    "Python": GREEN_POINT,
+    
 }
 
 BOX_TYPE_TO_COLOR = {
@@ -142,5 +146,6 @@ TRANSLATE_THEMES = {
     "Shell": "Commande Linux",
     "Git": "Git_Github",
     "SQL": "SQL",
-    "Python": "Python"   
+    "Python": "Python"
+    
 }

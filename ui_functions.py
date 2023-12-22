@@ -30,8 +30,8 @@ def initialize_display():
     question_zone = pygame.Rect(WIDTH, 340, WIDTH, 450)
     
     # Font settings
-    font_family = 'Verdana'
-    font_size = 20
+    font_family = 'Arial Unicode MS'
+    font_size = 30
 
     font = pygame.font.SysFont(font_family, font_size)
 
@@ -113,17 +113,24 @@ def display_scores(screen, font, player):
 
     # Starting Y position for the first line of text
     start_y = 550
-
+    image_size = (20, 20)
     # Display each player's score
     #for player in players:
+    start_x = 610
     display_name = f"{player.name}: "
-    scores_list = [THEME_TO_POINT[theme] if is_scored else " "
-                    for theme, is_scored in player.score.items()]
-    display_score = ", ".join(scores_list)
-    display = display_name + display_score
-    text_surface = font.render(display, True, WHITE)
-    screen.blit(text_surface, (610, start_y))
-    start_y += 30
+    text_surface_name = font.render(display_name, True, WHITE)
+    screen.blit(text_surface_name, (start_x, start_y))
+
+    for theme, is_scored in player.score.items():
+        if is_scored:
+            point_img = THEME_TO_POINT[theme]
+            point_img_resized = pygame.transform.scale(point_img, image_size)
+            screen.blit(point_img_resized, (start_x + text_surface_name.get_width(), start_y))
+
+        start_x += 30  # Espace supplémentaire pour l'image suivante
+
+    start_y += 30  # Décalage pour le prochain joueur
+
 
     pygame.display.update(score_area)
 
@@ -160,35 +167,45 @@ def display_new_positions(screen, indexes: List[int], positions: List[Tuple[int,
 
 
 # ADD auto_wrap to utils.py and add import
-def display_question_and_handle_answer(screen, font, question):
+def display_question_and_handle_answer(screen, font, question, display_question=True, display_winning_text=False):
     # Define the areas for question and answers [ENLARGE]
     question_area = pygame.Rect(600, 150, 600, 100)  # Top part of the bottom zone
-    answer_area = pygame.Rect(600, 250, 600, 160) # Bottom part of the bottom zone
-
+    answer_area = pygame.Rect(600, 250, 600, 160)  # Bottom part of the bottom zone
+    
     # Clear the areas
     pygame.draw.rect(screen, BACKGROUND, question_area)
     pygame.draw.rect(screen, BACKGROUND, answer_area) 
 
-    # Display the question
-    start_y = 150
-    question_wrapped = auto_wrap(question.question, 60)  # This value should be tested
-    for row in question_wrapped:
-        row_text = font.render(row, True, WHITE)
-        screen.blit(row_text, (610, start_y))
-        start_y += font.get_linesize()
-
-    start_y = 250  # This should be tested too
-
-    answer_options = question.options
-    for idx, option in enumerate(answer_options, 1):
-        answer_text = f"{idx}. {option}"
-        answer_text_wrapped = auto_wrap(answer_text, 60)
-        for row in answer_text_wrapped:
-            text_surface = font.render(row, True, WHITE)
-            screen.blit(text_surface, (610, start_y))
+    if display_question and not display_winning_text and question:  # Display the question if requested and it exists
+        # Display the question
+        start_y = 150
+        question_wrapped = auto_wrap(question.question, 60)  # This value should be tested
+        for row in question_wrapped:
+            row_text = font.render(row, True, WHITE)
+            screen.blit(row_text, (610, start_y))
             start_y += font.get_linesize()
 
+        start_y = 250  # This should be tested too
+
+        answer_options = question.options
+        for idx, option in enumerate(answer_options, 1):
+            answer_text = f"{idx}. {option}"
+            answer_text_wrapped = auto_wrap(answer_text, 60)
+            for row in answer_text_wrapped:
+                text_surface = font.render(row, True, WHITE)
+                screen.blit(text_surface, (610, start_y))
+                start_y += font.get_linesize()
+
+    if display_winning_text:
+        # Display the winning text
+        winning_text = font.render("Tu as gagné ! Relance le dé", True, WHITE)
+        screen.blit(winning_text, (600, 150))  # Adjust the coordinates as needed
+
     pygame.display.update([question_area, answer_area])
+
+
+
+
     
 
  
